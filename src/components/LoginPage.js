@@ -52,13 +52,15 @@ function LoginPage() {
          navigate('/dashboard'); 
           // Redirect to the dashboard
         } else {
+          console.log('Response:', response.data);
           setError(response.data.message);
         }
       } else {
         setError('Please enter email and password');
       }
     } catch (error) {
-        setError('Something went wrong');
+      setError(error.response.data.message || 'Something went wrong!');
+       // setError('Something went wrong');
     }
     // console.log('Email:', email);
     // console.log('Password:', password);
