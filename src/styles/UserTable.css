@@ -135,4 +135,38 @@
     color: white;
   }
   
-  
+  /* ✅ Responsive Design for Small Screens */
+@media (max-width: 768px) {
+  /* ✅ Make table scrollable */
+  .table-section {
+    overflow-x: auto;
+  }
+
+  table th, table td {
+    white-space: nowrap; /* Prevents wrapping inside table cells */
+    font-size: 14px; /* Slightly smaller text */
+    padding: 8px;
+  }
+
+  /* ✅ Stack action icons */
+  .action-icons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ✅ Modal full-width on smaller screens */
+  .modal-content {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  /* ✅ Center modal buttons */
+  .modal-footer {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .modal-footer button {
+    width: 100%;
+  }
+}

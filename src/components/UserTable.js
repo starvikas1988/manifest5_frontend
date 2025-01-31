@@ -71,7 +71,7 @@ const UserTable = ({ users, refreshUsers }) => {
         <tbody>
           {users.length === 0 ? (
             <tr>
-              <td colSpan="7">No users found</td>
+              <td colSpan="10">No users found</td>
             </tr>
           ) : (
             users.map((user, index) => (
