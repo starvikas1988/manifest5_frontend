@@ -68,3 +68,20 @@
   background-color: #ffc107;
   color: white;
 }
+
+/* 🔹 Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr; /* Single column layout */
+  }
+
+  .buttons {
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center;
+  }
+
+  .buttons button {
+    width: 100%; /* Full width buttons */
+    max-width: 300px; /* Prevents too wide buttons */
+  }
+}
