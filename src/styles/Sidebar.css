@@ -1,0 +1,35 @@
+.sidebar {
+    width: 220px;
+    background-color: #00474d;
+    color: white;
+    padding: 15px;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  /* Remove default link styles */
+  .sidebar ul li a {
+    color: white; /* White text color */
+    text-decoration: none; /* Remove underline */
+    display: block; /* Make the entire area clickable */
+    padding: 8px;
+  }
+  
+ /* Add hover effect */
+  .sidebar ul li a:hover {
+    background-color: #006d75;
+    border-radius: 5px;
+  }
+  
+  .submenu {
+    margin-left: 15px;
+    display: none;
+  }
+  
+  .submenu.open {
+    display: block;
+  }
+  
