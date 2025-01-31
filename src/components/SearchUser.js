@@ -11,7 +11,7 @@ const SearchUser = () => {
   const [searchData, setSearchData] = useState({
     name: "",
     email: "",
-    mobile_no: "",
+    phoneno: "",
     role: "",
     device_id: "",
     effective_date: "",
@@ -61,7 +61,7 @@ const SearchUser = () => {
     setSearchData({
       name: "",
       email: "",
-      mobile_no: "",
+      phoneno: "",
       role: "",
       device_id: "",
       effective_date: "",
@@ -87,7 +87,7 @@ const SearchUser = () => {
               </div>
               <div>
                 <label>Mobile No.</label>
-                <input type="text" name="mobile_no" value={searchData.mobile_no} onChange={handleChange} />
+                <input type="text" name="phoneno" value={searchData.phoneno} onChange={handleChange} />
               </div>
               <div>
                 <label>User Type</label>
