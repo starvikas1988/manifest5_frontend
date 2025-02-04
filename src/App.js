@@ -9,6 +9,7 @@ import NotFoundPage from './components/NotFoundPage';
 import CreateUser from './components/CreateUser';
 import ManageUser from './components/ManageUser';
 import MatchAssignment from './components/MatchAssignment';
+import CategoryManage from './components/CategoryManage';
 
 function App() {
   return (
@@ -60,6 +61,14 @@ function App() {
           element={
             <ProtectedRoute>
               <MatchAssignment />
+            </ProtectedRoute>
+          }
+        />
+          <Route
+          path="/category_manage"
+          element={
+            <ProtectedRoute>
+              <CategoryManage />
             </ProtectedRoute>
           }
         />

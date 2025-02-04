@@ -31,66 +31,97 @@ const MatchAssignment = () => {
         const response = await axiosInstance.get("/category", {
           headers: { Authorization: `Bearer ${authToken}` },
         });
-        setCategories(
-          Array.isArray(response.data.data)
-            ? response.data.data.map(cat => ({ value: cat.id, label: cat.name }))
-            : []
-        );
+    
+        console.log("Category API Response:", response.data); // Debugging
+    
+        // Ensure response is an array before mapping
+        const categoryList = Array.isArray(response.data.data)
+          ? response.data.data.map(cat => ({ value: cat.id, label: cat.name }))
+          : [];
+    
+        setCategories(categoryList);
       } catch (error) {
         console.error("Error fetching categories:", error);
+        setCategories([]); // Set empty array to prevent `map` error
       }
     };
+    
 
     const fetchAssignments = async () => {
       try {
         const response = await axiosInstance.get("/assignments", {
           headers: { Authorization: `Bearer ${authToken}` },
         });
-        const formattedAssignments = response.data.map(operator => ({
-          operator: operator.name,
-          categories: operator.categories.map(cat => cat.name),
-        }));
+    
+        console.log("Assignments API Response:", response.data); // Debugging
+    
+        const formattedAssignments = Array.isArray(response.data)
+          ? response.data.map(operator => ({
+              operator: operator.name,
+              categories: Array.isArray(operator.categories)
+                ? operator.categories.map(cat => cat.name)
+                : [],
+            }))
+          : [];
+    
         setAssignedReviews(formattedAssignments);
       } catch (error) {
         console.error("Error fetching assignments:", error);
+        setAssignedReviews([]); // Set empty array to prevent `map` error
       }
     };
+    
 
     fetchOperators();
     fetchCategories();
     fetchAssignments(); // Fetch previous assignments on load
   }, [authToken]);
 
-  // Assign match API call
+ 
   const handleAssignMatch = async () => {
     if (!selectedOperator || selectedCategories.length === 0) return;
-
+  
     const assignments = selectedCategories.map(category => ({
       operator_id: selectedOperator.value,
       category_id: category.value,
     }));
-
+  
     try {
       await axiosInstance.post("/assignments", { assignments }, {
         headers: { Authorization: `Bearer ${authToken}` },
       });
-
-      const newAssignedReviews = assignments.map(a => ({
-        operator: selectedOperator.label,
-        category: categories.find(cat => cat.value === a.category_id)?.label || "Unknown",
-      }));
-
-      // Update assigned reviews state
-      const updatedAssignedReviews = [...assignedReviews, ...newAssignedReviews];
-      setAssignedReviews(updatedAssignedReviews);
-
-      // Reset selected operator and categories
+  
+      setAssignedReviews(prevReviews => {
+        // Find if operator already exists
+        const operatorIndex = prevReviews.findIndex(review => review.operator === selectedOperator.label);
+  
+        if (operatorIndex !== -1) {
+          // Operator exists: Merge new categories (avoid duplicates)
+          const updatedReviews = [...prevReviews];
+          updatedReviews[operatorIndex].categories = [
+            ...new Set([...updatedReviews[operatorIndex].categories, ...selectedCategories.map(cat => cat.label)])
+          ];
+          return updatedReviews;
+        } else {
+          // Operator does not exist: Add as a new entry
+          return [
+            ...prevReviews,
+            {
+              operator: selectedOperator.label,
+              categories: selectedCategories.map(cat => cat.label), // Always an array
+            }
+          ];
+        }
+      });
+  
+      // Reset selections
       setSelectedOperator(null);
       setSelectedCategories([]);
     } catch (error) {
       console.error("Error assigning match:", error);
     }
   };
+  
 
   return (
     <>
@@ -130,14 +161,19 @@ const MatchAssignment = () => {
             {/* Assigned Review Display */}
             <div className="assigned-review">
               <h3>Assigned Reviews</h3>
+              {console.log(assignedReviews)}
               {assignedReviews.length > 0 ? (
                 assignedReviews.map((review, index) => (
                   <div key={index}>
                     <strong>{review.operator}:</strong>
                     <ul>
-                      {review.categories.map((category, idx) => (
-                        <li key={idx}>{category}</li>
-                      ))}
+                      {Array.isArray(review.categories) ? (
+                        review.categories.map((category, idx) => (
+                          <li key={idx}>{category}</li>
+                        ))
+                      ) : (
+                        <li>No categories assigned</li> // Fallback if categories is undefined
+                      )}
                     </ul>
                   </div>
                 ))

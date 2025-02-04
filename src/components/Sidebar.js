@@ -18,6 +18,7 @@ const Sidebar = () => {
           </ul>
         </li>
         <li><i>📊</i><Link to="/dashboard">Dashboard</Link></li>
+        <li><i>🗂️</i><Link to="/category_manage">Category</Link></li>
         <li>
         <i><FaUsersCog size={18} /></i>
         <Link to="/assign_match">Assign Match</Link>
