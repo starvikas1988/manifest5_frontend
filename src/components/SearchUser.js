@@ -75,7 +75,7 @@ const SearchUser = () => {
       <div className="searchUser-container">
         <div className="main-content">
           <div className="form-section">
-            <h3>MANAGE USER</h3>
+            <h3 className="class-h3">MANAGE USER</h3>
             <div className="form-grid">
               <div>
                 <label>Name</label>

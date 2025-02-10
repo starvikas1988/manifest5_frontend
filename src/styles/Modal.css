@@ -1,0 +1,148 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    max-width: 80%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .modal-body {
+    margin-top: 10px;
+  }
+
+  .file-preview {
+    margin-top: 15px;
+    text-align: center;
+  }
+  
+  .preview-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .file-preview {
+    margin-top: 15px;
+    text-align: center;
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .file-preview h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .file-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .file-thumbnail {
+    max-width: 100%;
+    max-height: 250px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .file-view-link {
+    font-size: 16px;
+    color: #007bff;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background: #eef5ff;
+    display: inline-block;
+  }
+  
+  .file-view-link:hover {
+    background: #d9e6ff;
+  }
+  
+  .download-section {
+    margin-top: 10px;
+  }
+  
+  .download-link {
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    background: #28a745;
+    border-radius: 5px;
+    display: inline-block;
+  }
+  
+  .download-link:hover {
+    background: #218838;
+  }
+  
+  .save-button {
+    margin-top: 15px;
+    padding: 10px 15px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .save-button:hover {
+    background: #0056b3;
+  }
+  
+  .file-upload {
+    margin-top: 15px;
+    text-align: left;
+  }
+  
+  .file-upload label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .file-upload input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .file-upload input:hover {
+    border-color: #007bff;
+  }
+  
+  
+  

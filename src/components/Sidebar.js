@@ -22,7 +22,11 @@ const Sidebar = () => {
         <li>
         <i><FaUsersCog size={18} /></i>
         <Link to="/assign_match">Assign Match</Link>
-      </li>
+        </li>
+        <li>
+        <i><FaUsersCog size={18} /></i>
+        <Link to="/manage-ticket">Tickets</Link>
+        </li>
         <li><i>⚙️</i> ODDS</li>
         <li><i>🔍</i> Review</li>
         <li><i>📋</i> CRM</li>

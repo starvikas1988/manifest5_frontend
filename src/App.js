@@ -5,12 +5,16 @@ import LoginPage from './components/LoginPage';
 import Dashboard from './components/Dashboard';
 import ProtectedRoute from "./components/ProtectedRoute";
 import PublicRoute from './components/PublicRoute';
+import OperatorPublicRoute from './components/OperatorPublicRoute';
 import NotFoundPage from './components/NotFoundPage';
 import CreateUser from './components/CreateUser';
 import ManageUser from './components/ManageUser';
 import MatchAssignment from './components/MatchAssignment';
 import CategoryManage from './components/CategoryManage';
-
+import TicketDashboard from './components/TicketDashboard';
+import OperatorLogin from './components/OperatorLogin';
+import OperatorDashboard from './components/OperatorDashboard';
+import OperatorProtectedRoute from './components/OperatorProtectedRoute';
 function App() {
   return (
     <Router>
@@ -22,6 +26,22 @@ function App() {
             <PublicRoute>
               <LoginPage />
             </PublicRoute>
+          }
+        />
+          <Route
+          path="/login/operator"
+          element={
+            <OperatorPublicRoute>
+              <OperatorLogin />
+            </OperatorPublicRoute>
+          }
+        />
+        <Route
+          path="/operator_dashboard"
+          element={
+            <OperatorProtectedRoute>
+              <OperatorDashboard />
+            </OperatorProtectedRoute>
           }
         />
         <Route
@@ -69,6 +89,14 @@ function App() {
           element={
             <ProtectedRoute>
               <CategoryManage />
+            </ProtectedRoute>
+          }
+        />
+         <Route
+          path="/manage-ticket"
+          element={
+            <ProtectedRoute>
+              <TicketDashboard />
             </ProtectedRoute>
           }
         />

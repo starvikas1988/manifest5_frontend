@@ -32,7 +32,7 @@ const MatchAssignment = () => {
           headers: { Authorization: `Bearer ${authToken}` },
         });
     
-        console.log("Category API Response:", response.data); // Debugging
+        //console.log("Category API Response:", response.data); // Debugging
     
         // Ensure response is an array before mapping
         const categoryList = Array.isArray(response.data.data)
@@ -53,7 +53,7 @@ const MatchAssignment = () => {
           headers: { Authorization: `Bearer ${authToken}` },
         });
     
-        console.log("Assignments API Response:", response.data); // Debugging
+        //console.log("Assignments API Response:", response.data); // Debugging
     
         const formattedAssignments = Array.isArray(response.data)
           ? response.data.map(operator => ({
@@ -161,7 +161,7 @@ const MatchAssignment = () => {
             {/* Assigned Review Display */}
             <div className="assigned-review">
               <h3>Assigned Reviews</h3>
-              {console.log(assignedReviews)}
+             
               {assignedReviews.length > 0 ? (
                 assignedReviews.map((review, index) => (
                   <div key={index}>

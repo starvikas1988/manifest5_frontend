@@ -58,7 +58,7 @@ const UserForm = ({onUserAdded}) => {
   return (
     <div className="user-form">
       <div className="form-section">
-        <h3>USER CREATION</h3>
+        <h3 className="class-h3">USER CREATION</h3>
         {message && <p className="success">{message}</p>}
         {error && <p className="error">{error}</p>}
         
@@ -80,7 +80,7 @@ const UserForm = ({onUserAdded}) => {
               <label>User Type</label>
               <select name="role" value={formData.role} onChange={handleChange} required>
                 <option value="">Select Role</option>
-                {/* <option value="admin">Admin</option> */}
+                <option value="admin">Admin</option>
                 <option value="user">User</option>
                 <option value="operator">Operator</option>
               </select>

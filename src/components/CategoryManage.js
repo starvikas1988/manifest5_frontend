@@ -20,7 +20,7 @@ const CategoryManage = () => {
             const response = await axiosInstance.get("/category", {
                 headers: { Authorization: `Bearer ${authToken}` },
             });
-            console.log("Categories:", response.data.data);
+            //console.log("Categories:", response.data.data);
             setCategories(response.data.data);
         } catch (error) {
             console.error("Error fetching categories:", error);
