@@ -1,0 +1,112 @@
+.market-manage-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: #38B2AC; /* Teal background */
+}
+.market-management-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+/* Category & Market Selection */
+.category-market-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.category-dropdown,
+.market-dropdown {
+    display: flex;
+    flex-direction: column;
+}
+
+.category-dropdown input,
+.market-dropdown input {
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    width: 200px;
+}
+
+/* Market Grid */
+.market-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.market-card {
+    background-color: #0c6170;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Add New Market */
+.add-new-market {
+    margin-bottom: 20px;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+}
+
+.input-container input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+}
+
+.save-btn {
+    margin-left: 10px;
+    cursor: pointer;
+    width: 40px;
+}
+
+/* Added Markets */
+.added-markets {
+    margin-bottom: 20px;
+}
+
+.added-market-list {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.added-market {
+    background-color: #0c6170;
+    padding: 8px 12px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.delete-btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.action-btn {
+    cursor: pointer;
+    width: 80px;
+}

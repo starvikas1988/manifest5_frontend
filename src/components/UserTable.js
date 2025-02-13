@@ -2,6 +2,8 @@ import React, { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../utils/axiosInstance";
 import "../styles/UserTable.css"; 
+import viewIcon from "../images/view_icon.png";
+import editIcon from "../images/edit_icon.png";
 
 const UserTable = ({ users, refreshUsers }) => {
   const [selectedUser, setSelectedUser] = useState(null);
@@ -93,8 +95,8 @@ const UserTable = ({ users, refreshUsers }) => {
                   </button>
                 </td>
                 <td className="action-icons">
-                  <span onClick={() => handleAction(user, "view")}>🔍</span>
-                  <span onClick={() => handleAction(user, "edit")}>✏️</span>
+                <img src={viewIcon} alt="View" className="icon view" title="View" onClick={() => handleAction(user, "view")} />
+                  <img src={editIcon} alt="Edit" className="icon edit" title="Edit" onClick={() => handleAction(user, "edit")} />
                   <span onClick={() => handleDelete(user.id)}>🗑️</span>
                 </td>
               </tr>

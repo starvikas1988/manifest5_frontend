@@ -129,8 +129,8 @@ const MatchAssignment = () => {
     <div className="matchAssignment">
       <div className="matchAssignment-container">
         <Sidebar />
-        <div className="main-content">
-          <div className="container">
+        <div className="matchAssignment-main-content">
+          <div className="match-container">
             <div className="dropdown-container">
               {/* Operator Selection */}
               <div className="dropdown">

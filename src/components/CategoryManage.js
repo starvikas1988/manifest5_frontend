@@ -6,11 +6,12 @@ import Sidebar from "./Sidebar";
 import "../styles/CategoryManage.css";
 
 const CategoryManage = () => {
-    const [categories, setCategories] = useState([]);
+    const [categories, setCategories] = useState([]); // Existing categories
     const [categoryName, setCategoryName] = useState("");
-    const [message, setMessage] = useState(""); // New state for message
-    const [messageType, setMessageType] = useState(""); // New state for message type (success or error)
-   
+    const [tempCategories, setTempCategories] = useState([]); // Temporary categories before submitting
+    const [message, setMessage] = useState("");
+    const [messageType, setMessageType] = useState("");
+
     const navigate = useNavigate();
     const authToken = localStorage.getItem("token");
 
@@ -20,10 +21,9 @@ const CategoryManage = () => {
             const response = await axiosInstance.get("/category", {
                 headers: { Authorization: `Bearer ${authToken}` },
             });
-            //console.log("Categories:", response.data.data);
             setCategories(response.data.data);
         } catch (error) {
-            console.error("Error fetching categories:", error);
+            showMessage("Failed to load categories.", "error");
         }
     };
 
@@ -34,49 +34,85 @@ const CategoryManage = () => {
         fetchCategories();
     }, [authToken]);
 
-    // Handle new category name input
+    // Show message with auto-hide after 5 seconds
+    const showMessage = (text, type) => {
+        setMessage(text);
+        setMessageType(type);
+        setTimeout(() => {
+            setMessage("");
+        }, 5000); // Message disappears after 5 seconds
+    };
+
+    // Handle input change
     const handleCategoryNameChange = (event) => {
         setCategoryName(event.target.value);
     };
 
-    // Submit new category
-    const handleCategorySubmit = async (event) => {
-        event.preventDefault();
-        try {
-            await axiosInstance.post(
-                "/category",
-                { name: categoryName },
-                { headers: { Authorization: `Bearer ${authToken}` } }
-            );
-            fetchCategories(); // Refresh category list
-            setCategoryName(""); // Clear input field
-            setMessage("Category added successfully!"); // Success message
-            setMessageType("success");
-            setTimeout(() => setMessage(""), 3000); // Hide message after 3 seconds
-        } catch (error) {
-            console.error("Error creating category:", error);
-            setMessage("Error adding category.");
-            setMessageType("error");
-            setTimeout(() => setMessage(""), 3000);
+    // Save category to temporary list (not directly to API)
+    const handleCategorySave = () => {
+        if (!categoryName.trim()) {
+            showMessage("Category name cannot be empty.", "error");
+            return;
         }
+
+        if (
+            categories.some(cat => cat.name.toLowerCase() === categoryName.toLowerCase()) ||
+            tempCategories.some(cat => cat.toLowerCase() === categoryName.toLowerCase())
+        ) {
+            showMessage("Category already exists.", "error");
+            return;
+        }
+
+        setTempCategories([...tempCategories, categoryName]); // Add to temporary list
+        setCategoryName(""); // Clear input
+        showMessage("Category saved temporarily!", "success");
     };
 
-    // Delete category
-    const handleDeleteCategory = async (categoryId) => {
+     // Delete category
+     const handleDeleteCategory = async (categoryId) => {
         try {
             await axiosInstance.delete(`/category/${categoryId}`, {
                 headers: { Authorization: `Bearer ${authToken}` },
             });
-            fetchCategories(); // Refresh category list
-            setMessage("Category deleted successfully!"); // Success message
-            setMessageType("delete");
-            setTimeout(() => setMessage(""), 3000); // Hide message after 3 seconds
+            fetchCategories();
+            showMessage("Category deleted successfully!", "error");
+            
         } catch (error) {
-            console.error("Error deleting category:", error);
             setMessage("Error deleting category.");
             setMessageType("error");
-            setTimeout(() => setMessage(""), 3000);
         }
+    };
+
+    // Submit all temporary categories to API
+    const handleCategorySubmit = async () => {
+        if (tempCategories.length === 0) {
+            showMessage("No categories to submit.", "error");
+            return;
+        }
+
+        try {
+            await Promise.all(
+                tempCategories.map(async (category) => {
+                    await axiosInstance.post(
+                        "/category",
+                        { name: category },
+                        { headers: { Authorization: `Bearer ${authToken}` } }
+                    );
+                })
+            );
+
+            fetchCategories(); // Refresh category list
+            setTempCategories([]); // Clear temporary list
+            showMessage("Categories added successfully!", "success");
+        } catch (error) {
+            showMessage("Error adding categories.", "error");
+        }
+    };
+
+    // Remove category from the temporary list
+    const handleTempCategoryDelete = (categoryToRemove) => {
+        setTempCategories(tempCategories.filter(cat => cat !== categoryToRemove));
+        showMessage("Category removed from temporary list.", "error");
     };
 
     return (
@@ -105,7 +141,6 @@ const CategoryManage = () => {
                             </div>
 
                             <h3 className="category-name">Add New Category</h3>
-
                             <div className="background-wrapper">
                                 <div className="add-category">
                                     <input
@@ -114,26 +149,32 @@ const CategoryManage = () => {
                                         value={categoryName}
                                         onChange={handleCategoryNameChange}
                                     />
-                                    <button className="save-btn" onClick={handleCategorySubmit}>
-                                        💾 Save
-                                    </button>
+                                    <img src="../images/save_btn.png" onClick={handleCategorySave} alt="Save"/>
                                 </div>
                             </div>
 
-                            {/* Message Display */}
-                            {message && (
-                                <div className={`message ${messageType}`}>
-                                    {message}
-                                </div>
-                            )}
+                            {message && <div className={`message ${messageType}`}>{message}</div>}
 
-                            <div className="action-buttons">
-                                <button className="refresh-btn" onClick={fetchCategories}>
-                                    🔄 Refresh
-                                </button>
-                                <button className="cancel-btn" onClick={() => setCategoryName("")}>
-                                    ❌ Cancel
-                                </button>
+                            <div className="category-action-container">
+                                <div className="added-category-container">
+                                    {tempCategories.map((tempCategory, index) => (
+                                        <div key={index} className="added-category">
+                                            <span>{tempCategory}</span>
+                                            <button
+                                                className="delete-btn"
+                                                onClick={() => handleTempCategoryDelete(tempCategory)}
+                                            >
+                                                🗑️
+                                            </button>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                <div className="action-buttons">
+                                    <img src="../images/submit_btn.png" alt="Submit" onClick={handleCategorySubmit} />
+                                    <img src="../images/refresh_btn.png" alt="Refresh" onClick={fetchCategories} />
+                                    <img src="../images/cancel_btn.png" alt="Cancel" onClick={() => setTempCategories([])} />
+                                </div>
                             </div>
                         </div>
                     </div>

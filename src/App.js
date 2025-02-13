@@ -15,6 +15,7 @@ import TicketDashboard from './components/TicketDashboard';
 import OperatorLogin from './components/OperatorLogin';
 import OperatorDashboard from './components/OperatorDashboard';
 import OperatorProtectedRoute from './components/OperatorProtectedRoute';
+import MarketManage from './components/MarketManage';
 function App() {
   return (
     <Router>
@@ -65,6 +66,14 @@ function App() {
           element={
             <ProtectedRoute>
               <CreateUser />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/manage-market"
+          element={
+            <ProtectedRoute>
+              <MarketManage />
             </ProtectedRoute>
           }
         />

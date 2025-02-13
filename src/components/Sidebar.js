@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { FaUsersCog, FaClipboardCheck } from "react-icons/fa";
+import dashboardIcon from "../images/dashboard.png";
 
 import '../styles/Sidebar.css';
 
@@ -17,12 +18,17 @@ const Sidebar = () => {
             <li><Link to="/manage-users">Manage User</Link></li>
           </ul>
         </li>
-        <li><i>📊</i><Link to="/dashboard">Dashboard</Link></li>
+        <li>
+        <img src={dashboardIcon} alt="Dashboard" className="menu-icon" />
+          <Link to="/dashboard">Dashboard</Link>
+          </li>
         <li><i>🗂️</i><Link to="/category_manage">Category</Link></li>
         <li>
         <i><FaUsersCog size={18} /></i>
         <Link to="/assign_match">Assign Match</Link>
         </li>
+        <li><FaUsersCog size={18} />
+        <Link to="/manage-market">Manage Market</Link></li>
         <li>
         <i><FaUsersCog size={18} /></i>
         <Link to="/manage-ticket">Tickets</Link>

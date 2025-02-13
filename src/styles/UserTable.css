@@ -41,13 +41,14 @@
     display: flex;
     gap: 10px;
     cursor: pointer;
+    padding: 20px;
   }
 
-  .action-icons span {
+  /* .action-icons span {
     cursor: pointer;
     margin: 0 5px;
     font-size: 18px;
-  }
+  } */
   
   /* ✅ Prevent scrolling on the body when the modal is open */
   body.modal-open {
@@ -149,10 +150,10 @@
   }
 
   /* ✅ Stack action icons */
-  .action-icons {
+  /* .action-icons {
     flex-direction: column;
     align-items: center;
-  }
+  } */
 
   /* ✅ Modal full-width on smaller screens */
   .modal-content {
