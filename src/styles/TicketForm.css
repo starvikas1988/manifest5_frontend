@@ -67,7 +67,7 @@ h2,label{
 
 /* Button Styling */
 .submit-btn {
-  background: #0C7C73;
+  background: #06D9C8;
   color: white;
   padding: 10px 20px;
   border-radius: 4px;
@@ -76,7 +76,7 @@ h2,label{
 }
 
 .reset-btn {
-  background: #0C7C73;
+  background: #06D9C8;
   color: white;
   padding: 10px 20px;
   border-radius: 4px;
@@ -85,7 +85,7 @@ h2,label{
 }
 
 .cancel-btn {
-  background: #0C7C73;
+  background: #06D9C8;
   color: white;
   padding: 10px 20px;
   border-radius: 4px;
