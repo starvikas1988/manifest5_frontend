@@ -60,7 +60,6 @@
     padding: 10px;
     cursor: pointer;
     display: flex;
-    align-items: center;
   }
   
   .sidebar ul li:hover {

@@ -195,52 +195,51 @@ const MarketManage = () => {
 
                             {/* Market List */}
                             <div className="market-container">
-    <div className="market-list">
-        {filteredMarkets.map((market) => (
-            <div key={market.id} className="market-item">
-                {market.name} ({market.category_name})
-                <button className="delete-btn" onClick={() => handleDeleteMarket(market.id)}>
-                    🗑️
-                </button>
-            </div>
-        ))}
-    </div>
+                                <div className="market-list">
+                                    {filteredMarkets.map((market) => (
+                                        <div key={market.id} className="market-item">
+                                            {market.name} ({market.category_name})
+                                            <button className="delete-btn" onClick={() => handleDeleteMarket(market.id)}>
+                                                🗑️
+                                            </button>
+                                        </div>
+                                    ))}
+                                </div>
 
-    <h3 className="category-name">Add New Market</h3>
-    <div className="background-wrapper">
-        <div className="add-category">
-            <input
-                type="text"
-                placeholder="Enter market name..."
-                value={newMarket}
-                onChange={handleMarketInputChange}
-            />
-            <img src="../images/save_btn.png" onClick={handleMarketSave} alt="Save" />
-        </div>
-    </div>
+                                <h3 className="category-name">Add New Market</h3>
+                                <div className="background-wrapper">
+                                    <div className="add-category">
+                                        <input
+                                            type="text"
+                                            placeholder="Enter market name..."
+                                            value={newMarket}
+                                            onChange={handleMarketInputChange}
+                                        />
+                                        <img src="../images/save_btn.png" onClick={handleMarketSave} alt="Save" />
+                                    </div>
+                                </div>
 
-    {message && <div className={`message ${messageType}`}>{message}</div>}
+                                {message && <div className={`message ${messageType}`}>{message}</div>}
 
-    <div className="category-action-container">
-        <div className="added-category-container">
-            {tempMarkets.map((tempMarket, index) => (
-                <div key={index} className="added-market">
-                    <span>{tempMarket}</span>
-                    <button className="delete-btn" onClick={() => handleTempMarketDelete(tempMarket)}>
-                        🗑️
-                    </button>
-                </div>
-            ))}
-        </div>
+                                <div className="category-action-container">
+                                    <div className="added-category-container">
+                                        {tempMarkets.map((tempMarket, index) => (
+                                            <div key={index} className="added-market">
+                                                <span>{tempMarket}</span>
+                                                <button className="delete-btn" onClick={() => handleTempMarketDelete(tempMarket)}>
+                                                    🗑️
+                                                </button>
+                                            </div>
+                                        ))}
+                                    </div>
 
-        <div className="action-buttons">
-            <img src="../images/submit_btn.png" alt="Submit" onClick={handleMarketSubmit} />
-            <img src="../images/refresh_btn.png" alt="Refresh" onClick={fetchData} />
-            <img src="../images/cancel_btn.png" alt="Cancel" onClick={() => setTempMarkets([])} />
-        </div>
-    </div>
-</div>
-
+                                    <div className="action-buttons">
+                                        <img src="../images/submit_btn.png" alt="Submit" onClick={handleMarketSubmit} />
+                                        <img src="../images/refresh_btn.png" alt="Refresh" onClick={fetchData} />
+                                        <img src="../images/cancel_btn.png" alt="Cancel" onClick={() => setTempMarkets([])} />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
