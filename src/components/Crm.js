@@ -1,14 +1,18 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../utils/axiosInstance"; // Adjust path as needed
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import "../styles/Dashboard.css";
 import "../styles/Crm.css";
 
-const Dashboard = () => {
+const Crm = () => {
   const [users, setUsers] = useState([]);
+  const [startDate, setStartDate] = useState(new Date());
+  const datePickerRef = useRef(null);
   const navigate = useNavigate();
   const authToken = localStorage.getItem("token"); // Check if logged in
 
@@ -71,6 +75,16 @@ const Dashboard = () => {
       alert("Logout failed. Please try again.");
     }
   };
+
+  const handleRaiseTicket = ()=>{
+    navigate('/manage-ticket');
+  }
+
+  const handledatepickerClick = () => {
+    if (datePickerRef.current) {
+      datePickerRef.current.setOpen(true); // Open the DatePicker
+    }
+  };
   return (
     <>
       <div className="dashboard">
@@ -81,9 +95,11 @@ const Dashboard = () => {
             <div className="box">
               <div className="heading-box">
                 <span className="heading-text">CRM ERROR REPORT ( 04 )</span>
-                <div className="toggle" style={{ left: "228px" }}></div>
-
+                <div className="toggle-container">
+                <div className="toggle" style={{ left: "150px" }}></div>
                 <span className="all-reports">ALL REPORTS</span>
+                </div>
+                
               </div>
 
               <div className="content">
@@ -230,7 +246,14 @@ const Dashboard = () => {
                     className="date-picker"
                     style={{ bottom: "-11px", position: "relative" }}
                   >
-                    <input type="text" />
+                    <DatePicker
+                      ref={datePickerRef} 
+                      selected={startDate}
+                      onChange={(date) => setStartDate(date)}
+                      dateFormat="yyyy-MM-dd" // Customize date format as needed
+                      className="date-picker-input" // Add a class for styling
+                      placeholderText="Select a date"
+                    />
                     <img
                       style={{
                         width: "55px",
@@ -239,6 +262,7 @@ const Dashboard = () => {
                       }}
                       src="images/dashboard/Frame 1966.png"
                       alt="Calendar Icon"
+                      onClick={handledatepickerClick}
                     />
                   </div>
                 </div>
@@ -260,7 +284,7 @@ const Dashboard = () => {
                   </span>
                   <img src="images/dashboard/Group 1821.png" alt="Card Icon" />
                 </div>
-                <div className="field-container">
+                <div className="field-container" onClick={handleRaiseTicket} style={{ cursor: 'pointer' }}>
                   <span className="field-name">
                     RAISE
                     <br />
@@ -731,4 +755,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Crm;

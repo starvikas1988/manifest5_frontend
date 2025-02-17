@@ -16,6 +16,7 @@ import OperatorLogin from './components/OperatorLogin';
 import OperatorDashboard from './components/OperatorDashboard';
 import OperatorProtectedRoute from './components/OperatorProtectedRoute';
 import MarketManage from './components/MarketManage';
+import Crm from './components/Crm';
 function App() {
   return (
     <Router>
@@ -58,6 +59,14 @@ function App() {
           element={
             <ProtectedRoute>
               <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+           <Route
+          path="/crm"
+          element={
+            <ProtectedRoute>
+              <Crm />
             </ProtectedRoute>
           }
         />

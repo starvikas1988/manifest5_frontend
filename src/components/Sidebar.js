@@ -56,7 +56,7 @@ const Sidebar = () => {
         <li onClick={() => setCrmOpen(!isCrmOpen)}>
           <div style={{display:"flex"}}><i><img src='../images/contact_support.png'/></i>  CRM</div>
           <ul className={`submenu ${isCrmOpen ? 'open' : ''}`}>
-            <li><Link to="/">Manage CRM</Link></li>
+            <li><Link to="/crm">Manage CRM</Link></li>
           </ul>
         </li>
        

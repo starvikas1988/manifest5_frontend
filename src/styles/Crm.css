@@ -1,0 +1,557 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+}
+
+
+/* Header Styles */
+.header {
+  width: 100%;
+  height: 90px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 35px;
+}
+
+.header-logo img {
+  width: 232px;
+  height: 50px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+}
+
+.profile img {
+  width: 25px;
+  height: 25px;
+  margin-right: 34.5px;
+}
+
+.profile-name {
+  font-size: 10px;
+  font-weight: 600;
+  color: #0c7c73;
+  position: absolute; /* Position the name absolutely */
+  top: 30px; /* Adjusted to position below the profile image */
+  right: 34.5px; /* Align with the profile image */
+  text-align: center; /* Center the text */
+  width: 28px; /* Width of the name */
+  height: 13px; /* Height of the name */
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 20%;
+  height: 1210px;
+  background-color: #043e54;
+  padding: 30px;
+}
+
+.menu-item {
+  width: 210px;
+  height: 48px;
+  background-color: #00546c;
+  display: flex;
+  align-items: center;
+  padding-left: 20.99px;
+  margin-bottom: 25px;
+  position: relative;
+  border-radius: 5px;
+}
+
+.menu-item.last-menu {
+  background-color: #02707b;
+}
+
+.menu-item img {
+  width: 24px;
+  height: 24px;
+  margin: 13px 14px 11px 0;
+}
+
+.menu-item span {
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  margin-left: 12.57px;
+}
+
+.last-menu img:last-child {
+  width: 6.13px;
+  height: 12.27px;
+  position: absolute;
+  right: 18.87px;
+  top: 5px;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  background-color: #44cec6;
+}
+
+/* Body Container */
+.body-container {
+  padding: 31px 0px 0 41px;
+  width: 80%;
+}
+
+/* Box Styles */
+.box {
+  width: 95%;
+  min-height: 90.5px; /* Ensures a minimum height */
+  background-color: white;
+  border-radius: 5px;
+  padding: 8px;
+  margin-bottom: 20px; /* Space between boxes */
+  display: flex; /* Enables flexible content layout */
+  flex-direction: column; /* Stacks content vertically */
+}
+
+/* Heading Box */
+.heading-box {
+  width: 100%;
+  height: 33px;
+  background-color: #00546c;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 11px 0 8px;
+  position: relative;
+  border-radius: 5px;
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between toggle & text */
+}
+
+/* Adjust the toggle button */
+.toggle {
+  width: 32px;
+  height: 16px;
+  background-color: #df2330;
+  border-radius: 15px;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Ensure "ALL REPORTS" text is properly aligned */
+.all-reports {
+  font-size: 12px;
+  font-weight: 800;
+  color: white;
+  white-space: nowrap; /* Prevents text from breaking */
+}
+
+.heading-text {
+  font-size: 18px;
+  font-weight: 800;
+  color: white;
+  width: 234px;
+  height: 25px;
+  margin-left: 350px;
+}
+
+.toggle {
+  width: 32px;
+  height: 16px;
+  background-color: #df2330;
+  border-radius: 15px;
+  position: relative;
+  cursor: pointer;
+}
+
+.toggle:before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  border-radius: 50%;
+  top: 2px;
+  left: 4px;
+  transition: transform 0.3s;
+}
+
+.toggle.on:before {
+  transform: translateX(20px);
+}
+
+.all-reports {
+  font-size: 12px;
+  font-weight: 800;
+  color: white;
+  width: 81px;
+  height: 22px;
+  margin-right: 55px;
+}
+
+/* Content Sections */
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #00546c;
+  margin-bottom: 8px;
+}
+
+.section-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 8px;
+}
+
+.section-number {
+  font-size: 30px;
+  font-weight: 800;
+  position: absolute;
+  top: 35px;
+  margin-left: 130px;
+  transform: translateX(-50%);
+}
+
+/* Separator Line */
+.separator {
+  width: 1px;
+  height: 76px;
+  background-color: #3aafa9;
+}
+
+.all-container {
+  display: flex;
+  width: 100%;
+}
+
+/* Field Container */
+.field-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px; /* Space between field name and input/button */
+}
+
+/* Field Name */
+.field-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0c7c73;
+  display: block; /* Ensures text does not interfere with the image */
+  text-align: center;
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 30px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 8px 30px 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #adcab3; /* Default background color */
+  font-size: 12px;
+}
+
+.search-bar img {
+  position: absolute;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* Custom Background Colors for Search Bars */
+.series-search input {
+  background-color: #adcab3; /* Change this color as needed */
+}
+
+.match-search input {
+  background-color: #adcab3; /* Change this color as needed */
+}
+
+/* Date Picker */
+.date-picker {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 30px;
+  margin-bottom: 11px;
+}
+
+.date-picker input {
+  width: 100%;
+  height: 30px;
+  padding: 5px 30px 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #adcab3;
+  font-size: 12px;
+}
+
+.date-picker img {
+  position: absolute;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* Buttons Container */
+.buttons-container {
+  width: 20%;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px; /* Space between buttons */
+}
+
+.buttons button {
+  background-color: #00546c;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px; /* Space between icon and text */
+}
+
+.buttons button img {
+  width: 20px;
+  height: 20px;
+}
+.field-container img {
+  width: 30px; /* Set fixed width */
+  height: 30px; /* Set fixed height */
+  object-fit: contain; /* Ensure images maintain aspect ratio */
+}
+
+/* 3rd part */
+
+/* List View Section */
+.list-view-section {
+  width: 108px;
+  height: 30px;
+  background-color: #00546c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.list-view-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+}
+
+/* Big Box */
+.big-box {
+  width: 100%;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* Top Bar */
+.top-bar {
+  width: 240px;
+  height: 30px;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.top-bar img {
+  width: 20px;
+  height: 20px;
+}
+
+/* First Row */
+.first-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Small Box */
+.small-box {
+  width: 120px;
+  height: 33px;
+  background-color: #017781;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  color: white;
+}
+
+.small-box .top-part,
+.small-box .bottom-part {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.small-box .top-part {
+  background-color: #9f41a4;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: white;
+}
+
+.small-box .bottom-part {
+  background-color: #00546c;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: white;
+}
+
+/* League Section */
+.league-section {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.league-section h2 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #00546c;
+  margin-bottom: 5px;
+}
+
+.league-section p {
+  font-size: 12px;
+  color: #555;
+}
+
+/* Team Section */
+.team-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.team-section img {
+  width: 30px;
+  height: 30px;
+}
+
+.team-section span {
+  font-size: 14px;
+  font-weight: 600;
+  color: #00546c;
+}
+
+/* End Box */
+.end-box {
+  width: 149px;
+  height: 33px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.end-box .top-part,
+.end-box .bottom-part {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.end-box .top-part {
+  background-color: #f0f0f0;
+}
+
+.end-box .bottom-part {
+  background-color: #e0e0e0;
+}
+
+/* Second Row */
+.second-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.small-boxes {
+  display: flex;
+  gap: 10px;
+}
+
+.small-boxes .small-box {
+  width: 60px;
+  height: 30px;
+  background-color: #017781;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  font-size: 12px;
+  color: white;
+}
+.admin-section {
+  width: 200px;
+  height: 22px;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  border-radius: 5px;
+}
+
+.box span,
+.box p,
+.box h2 {
+  font-size: 12px;
+}
