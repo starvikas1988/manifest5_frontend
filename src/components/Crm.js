@@ -153,7 +153,7 @@ const Crm = () => {
                     USER
                   </span>
                   <img
-                    src="images/dashboard/Ellipse 3.png"
+                    src="images/dashboard/Group1555.png"
                     alt="User Icon"
                     className="section-icon"
                     style={{ marginLeft: "-54px", marginRight: "0px" }}

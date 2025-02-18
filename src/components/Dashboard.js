@@ -5,7 +5,6 @@ import axiosInstance from "../utils/axiosInstance"; // Adjust path as needed
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import "../styles/Dashboard.css";
-import "../styles/Crm.css";
 
 const Dashboard = () => {
   const [users, setUsers] = useState([]);
@@ -80,21 +79,22 @@ const Dashboard = () => {
           <div className="body-container">
             <div className="box">
               <div className="heading-box">
-                <span className="heading-text">CRM ERROR REPORT ( 04 )</span>
-                <div className="toggle" style={{ left: "228px" }}></div>
-
+                <span className="heading-text">Dashboard</span>
+                <div className="toggle-container">
+                <div className="toggle" style={{ left: "150px" }}></div>
                 <span className="all-reports">ALL REPORTS</span>
+                </div>
               </div>
 
               <div className="content">
                 <div className="section">
                   <span className="section-title">ADMIN</span>
                   <img
-                    src="images/dashboard/Group 1581.png"
+                    src="../images/dashboard_main/Group 1581.png"
                     alt="Admin Icon"
                     className="section-icon"
                   />
-                  <span className="section-number" style={{ color: "#9f41a4" }}>
+                  <span className="section-number" style={{ color: "#9F41A4" }}>
                     50
                   </span>
                 </div>
@@ -103,6 +103,7 @@ const Dashboard = () => {
                   className="separator"
                   style={{ marginLeft: "-60px" }}
                 ></div>
+
                 <div className="section">
                   <span
                     className="section-title"
@@ -110,15 +111,17 @@ const Dashboard = () => {
                   >
                     OPERATOR
                   </span>
+
                   <img
-                    src="images/dashboard/Group 1582.png"
+                    src="../images/dashboard_main/Group 1582.png"
                     alt="Operator Icon"
                     className="section-icon"
                     style={{ marginLeft: "-205px" }}
                   />
+
                   <span
                     className="section-number"
-                    style={{ color: "#00ac4f", marginLeft: "-73px" }}
+                    style={{ color: "#00AC4F", marginLeft: "-73px" }}
                   >
                     24
                   </span>
@@ -137,14 +140,15 @@ const Dashboard = () => {
                     USER
                   </span>
                   <img
-                    src="images/dashboard/Ellipse 3.png"
+                    src="../images/dashboard_main/Group1555.png"
                     alt="User Icon"
                     className="section-icon"
                     style={{ marginLeft: "-54px", marginRight: "0px" }}
                   />
+
                   <span
                     className="section-number"
-                    style={{ color: "#fca502", marginLeft: "69px" }}
+                    style={{ color: "#FCA502", marginLeft: "69px" }}
                   >
                     12
                   </span>
@@ -153,24 +157,24 @@ const Dashboard = () => {
                 <div
                   className="separator"
                   style={{ marginRight: "176px", marginLeft: "-58px" }}
-                ></div>
+                />
 
                 <div className="section">
                   <span
                     className="section-title"
-                    style={{ marginRight: "0px", marginLeft: "-604px" }}
+                    style={{ marginRight: 0, marginLeft: "-604px" }}
                   >
                     TECHNICAL
                   </span>
                   <img
-                    src="images/dashboard/Group 1687.png"
+                    src="../images/dashboard_main/Group 1687.png"
                     alt="Technical Icon"
                     className="section-icon"
                     style={{ marginLeft: "-366px", marginRight: "274px" }}
                   />
                   <span
                     className="section-number"
-                    style={{ color: "#df2330", marginRight: "643px" }}
+                    style={{ color: "#DF2330", marginRight: "643px" }}
                   >
                     01
                   </span>
@@ -186,16 +190,12 @@ const Dashboard = () => {
                   </span>
                   <div
                     className="search-bar series-search"
-                    style={{ bottom: "-11px", position: "relative" }}
+                    style={{ bottom: "-11px" }}
                   >
                     <input type="text" />
                     <img
-                      style={{
-                        width: "55px",
-                        right: "1px",
-                        position: "relative",
-                      }}
-                      src="images/dashboard/Group 2555.png"
+                      style={{ width: "55px", right: "1px" }}
+                      src="../images/dashboard_main/Group 2555.png"
                       alt="Down Arrow"
                     />
                   </div>
@@ -207,16 +207,12 @@ const Dashboard = () => {
                   </span>
                   <div
                     className="search-bar match-search"
-                    style={{ bottom: "-11px", position: "relative" }}
+                    style={{ bottom: "-11px" }}
                   >
                     <input type="text" />
                     <img
-                      style={{
-                        width: "55px",
-                        right: "1px",
-                        position: "absolute",
-                      }}
-                      src="images/dashboard/Group 2555.png"
+                      style={{ width: "55px", right: "1px" }}
+                      src="../images/dashboard_main/Group 2555.png"
                       alt="Down Arrow"
                     />
                   </div>
@@ -226,18 +222,11 @@ const Dashboard = () => {
                   <span className="field-name" style={{ marginLeft: "-66px" }}>
                     DATE
                   </span>
-                  <div
-                    className="date-picker"
-                    style={{ bottom: "-11px", position: "relative" }}
-                  >
+                  <div className="date-picker" style={{ bottom: "-11px" }}>
                     <input type="text" />
                     <img
-                      style={{
-                        width: "55px",
-                        right: "-12px",
-                        position: "absolute",
-                      }}
-                      src="images/dashboard/Frame 1966.png"
+                      style={{ width: "55px", right: "-12px" }}
+                      src="../images/dashboard_main/Frame 1966.png"
                       alt="Calendar Icon"
                     />
                   </div>
@@ -249,7 +238,10 @@ const Dashboard = () => {
                     <br />
                     (50)
                   </span>
-                  <img src="images/dashboard/Group 1830.png" alt="List Icon" />
+                  <img
+                    src="../images/dashboard_main/Group 1830.png"
+                    alt="List Icon"
+                  />
                 </div>
 
                 <div className="field-container">
@@ -258,15 +250,20 @@ const Dashboard = () => {
                     <br />
                     (50)
                   </span>
-                  <img src="images/dashboard/Group 1821.png" alt="Card Icon" />
+                  <img
+                    src="../images/dashboard_main/Group 1821.png"
+                    alt="Card Icon"
+                  />
                 </div>
                 <div className="field-container">
                   <span className="field-name">
                     RAISE
-                    <br />
-                    TICKET
+                    <br /> TICKET
                   </span>
-                  <img src="images/dashboard/Group 1829.png" alt="List Icon" />
+                  <img
+                    src="../images/dashboard_main/Group 1829.png"
+                    alt="List Icon"
+                  />
                 </div>
               </div>
             </div>
@@ -274,456 +271,565 @@ const Dashboard = () => {
             <div className="list-view-section">
               <span className="list-view-text">LIST VIEW (42)</span>
             </div>
-
-            <div className="admin-section" style={{ backgroundColor: "#9f41a4" }}>
-              <span style={{ color: "white" }}>ADMIN 50</span>
-              <img src="images/dashboard/arrow_down.png" alt="Down Arrow" />
-            </div>
-
-            <div className="box" style={{ marginTop: "0px" }}>
-              <div className="first-row">
-                <div className="small-box">
-                  <div className="top-part">
-                    <span>ADMIN</span>
-                  </div>
-                  <div className="bottom-part">
-                    <span>AMAN CHOUHAN</span>
-                  </div>
-                </div>
-
-                <div className="small-box">
-                  <span>Jan 26, Tue</span>
-                  <span>2025</span>
-                </div>
-
-                <div className="league-section">
-                  <h2 style={{ color: "#00ac4f" }}>
-                    BANGLADESH PREMIER LEAGUE
-                  </h2>
-                </div>
-                <div className="league-section">
-                  <p style={{ color: "#00546c" }}>
-                    Match: 53, Mon, 720, Domestic
-                  </p>
-                  <p style={{ color: "#00546c" }}>
-                    Share Bangla National Stadium
-                  </p>
-                </div>
-
-                <div className="team-section">
-                  <img src="images/dashboard/B (1).png" alt="Team 1 Logo" />
-                  <span>NB w</span>
-                  <span>vs</span>
-                  <span>CH W</span>
-                  <img src="images/dashboard/H (1).png" alt="Team 2 Logo" />
-                </div>
-
-                <div className="end-box">
+            <div class="card-container">
+              <div className="card">
+                <div className="left-section">MATCH 33, MEN, DOMESTIC</div>
+                <div className="main-content-card">
                   <div
-                    className="top-part"
-                    style={{ backgroundColor: "#017781" }}
+                    className="header-card content"
+                    style={{
+                      marginBottom: "0px",
+                      borderBottomWidth: "0px",
+                      borderBottomStyle: "solid",
+                      bottom: "20px",
+                    }}
                   >
-                    <span style={{ color: "white" }}>13:30 AM (L)</span>
-                  </div>
-                  <div
-                    className="bottom-part"
-                    style={{ backgroundColor: "#ffff98" }}
-                  >
-                    <span style={{ color: "#00546c" }}>
-                      Starting in 18th-15th-49s
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="second-row">
-                <div className="small-boxes">
-                  <div className="small-box">
-                    <span>BATSMAN</span>
-                  </div>
-                  <div className="small-box">
-                    <span>BOWLER</span>
-                  </div>
-                  <div className="small-box">
-                    <span>OVER</span>
-                  </div>
-                  <div className="small-box">
-                    <span>EXTRA</span>
-                  </div>
-                  <div className="small-box">
-                    <span>OVER</span>
-                  </div>
-                  <div className="small-box">
-                    <span>EXTRA</span>
-                  </div>
-                  <div className="small-box">
-                    <span>WICKETS</span>
-                  </div>
-                  <div className="small-box">
-                    <span>MATCH</span>
-                  </div>
-                  <div className="small-box">
-                    <span>SERIES</span>
-                  </div>
-                  <div className="small-box">
-                    <span>CLIP</span>
-                  </div>
-                  <div className="small-box">
-                    <span>SERIES</span>
-                  </div>
-                  <div className="small-box">
-                    <span>CLIP</span>
-                  </div>
-                </div>
-
-                <div className="small-boxes">
-                  {[30, 30, 20, 10, 20, 10, 10, 10, 3, 2, 3, 2].map(
-                    (number, index) => (
-                      <div
-                        key={index}
-                        className="small-box"
-                        style={{ backgroundColor: "#adcab3" }}
-                      >
-                        <span style={{ color: "#043e54" }}>{number}</span>
-                      </div>
-                    )
-                  )}
-                </div>
-              </div>
-            </div>
-
-            <div
-              className="admin-section"
-              style={{ backgroundColor: "#00ac4f" }}
-            >
-              <span style={{ color: "white" }}>ADMIN 50</span>
-              <img src="images/dashboard/arrow_down.png" alt="Down Arrow" />
-            </div>
-
-            <div className="box" style={{ marginTop: "0px" }}>
-              <div className="first-row">
-                <div className="small-box">
-                  <div
-                    className="top-part"
-                    style={{ backgroundColor: "#00ac4f" }}
-                  >
-                    <span>ADMIN</span>
-                  </div>
-                  <div className="bottom-part">
-                    <span>AMAN CHOUHAN</span>
-                  </div>
-                </div>
-
-                <div className="small-box">
-                  <span>Jan 26, Tue</span>
-                  <span>2025</span>
-                </div>
-
-                <div className="league-section">
-                  <h2 style={{ color: "#00ac4f" }}>
-                    BANGLADESH PREMIER LEAGUE
-                  </h2>
-                </div>
-                <div className="league-section">
-                  <p style={{ color: "#00546c" }}>
-                    Match: 53, Mon, 720, Domestic
-                  </p>
-                  <p style={{ color: "#00546c" }}>
-                    Share Bangla National Stadium
-                  </p>
-                </div>
-
-                <div className="team-section">
-                  <img src="images/dashboard/B (1).png" alt="Team 1 Logo" />
-                  <span>NB w</span>
-                  <span>vs</span>
-                  <span>CH W</span>
-                  <img src="images/dashboard/H (1).png" alt="Team 2 Logo" />
-                </div>
-
-                <div className="end-box">
-                  <div
-                    className="top-part"
-                    style={{ backgroundColor: "#017781" }}
-                  >
-                    <span style={{ color: "white" }}>13:30 AM (L)</span>
-                  </div>
-                  <div
-                    className="bottom-part"
-                    style={{ backgroundColor: "#ffff98" }}
-                  >
-                    <span style={{ color: "#00546c" }}>
-                      Starting in 18th-15th-49s
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="second-row">
-                <div className="small-boxes">
-                  {[
-                    "BATSMAN",
-                    "BOWLER",
-                    "OVER",
-                    "EXTRA",
-                    "OVER",
-                    "EXTRA",
-                    "WICKETS",
-                    "MATCH",
-                    "SERIES",
-                    "CLIP",
-                    "SERIES",
-                    "CLIP",
-                  ].map((item, index) => (
-                    <div key={index} className="small-box">
-                      <span>{item}</span>
+                    <div className="row">
+                      <h5>BANGLADESH PREMIER LEAGUE</h5>
+                      <br />
+                      <p className="sub-text">
+                        26-Jan-2025, 13:30 (L) 11:30 (D)
+                        <br />
+                        Shere Bangla National Stadium
+                      </p>
                     </div>
-                  ))}
-                </div>
 
-                <div className="small-boxes">
-                  {[30, 30, 20, 10, 20, 10, 10, 10, 3, 2, 3, 2].map(
-                    (num, index) => (
-                      <div
-                        key={index}
-                        className="small-box"
-                        style={{ backgroundColor: "#adcab3" }}
-                      >
-                        <span style={{ color: "#043e54" }}>{num}</span>
-                      </div>
-                    )
-                  )}
-                </div>
-              </div>
-            </div>
-
-            <div
-              className="admin-section"
-              style={{ backgroundColor: "#fca502" }}
-            >
-              <span style={{ color: "white" }}>ADMIN 50</span>
-              <img src="images/dashboard/arrow_down.png" alt="Down Arrow" />
-            </div>
-
-            <div className="box" style={{ marginTop: 0 }}>
-              <div className="first-row">
-                <div className="small-box">
-                  <div
-                    className="top-part"
-                    style={{ backgroundColor: "#fca502" }}
-                  >
-                    <span>ADMIN</span>
-                  </div>
-                  <div className="bottom-part">
-                    <span>AMAN CHOUHAN</span>
-                  </div>
-                </div>
-
-                <div className="small-box">
-                  <span>Jan 26, Tue</span>
-                  <span>2025</span>
-                </div>
-
-                <div className="league-section">
-                  <h2 style={{ color: "#00ac4f" }}>
-                    BANGLADESH PREMIER LEAGUE
-                  </h2>
-                </div>
-                <div className="league-section">
-                  <p style={{ color: "#00546c" }}>
-                    Match: 53, Mon, 720, Domestic
-                  </p>
-                  <p style={{ color: "#00546c" }}>
-                    Share Bangla National Stadium
-                  </p>
-                </div>
-
-                <div className="team-section">
-                  <img src="images/dashboard/B (1).png" alt="Team 1 Logo" />
-                  <span>NB w</span>
-                  <span>vs</span>
-                  <span>CH W</span>
-                  <img src="images/dashboard/H (1).png" alt="Team 2 Logo" />
-                </div>
-
-                <div className="end-box">
-                  <div
-                    className="top-part"
-                    style={{ backgroundColor: "#017781" }}
-                  >
-                    <span style={{ color: "white" }}>13:30 AM (L)</span>
-                  </div>
-                  <div
-                    className="bottom-part"
-                    style={{ backgroundColor: "#ffff98" }}
-                  >
-                    <span style={{ color: "#00546c" }}>
-                      Starting in 18th-15th-49s
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="second-row">
-                <div className="small-boxes">
-                  {[
-                    "BATSMAN",
-                    "BOWLER",
-                    "OVER",
-                    "EXTRA",
-                    "OVER",
-                    "EXTRA",
-                    "WICKETS",
-                    "MATCH",
-                    "SERIES",
-                    "CLIP",
-                    "SERIES",
-                    "CLIP",
-                  ].map((text, index) => (
-                    <div key={index} className="small-box">
-                      <span>{text}</span>
+                    <p className="sub-text"></p>
+                    <div
+                      className="first-class"
+                      style={{
+                        marginLeft: "0px",
+                        left: "227.467px",
+                        right: "0px",
+                        borderLeftWidth: "0px",
+                        borderLeftStyle: "solid",
+                        paddingLeft: "5px",
+                        bottom: "0px",
+                        top: "0px",
+                        marginTop: "0px",
+                        borderTopWidth: "0px",
+                        borderTopStyle: "solid",
+                        paddingTop: "25px",
+                      }}
+                    >
+                      FIRST CLASS
                     </div>
-                  ))}
-                </div>
+                  </div>
 
-                <div className="small-boxes">
-                  {[30, 30, 20, 10, 20, 10, 10, 10, 3, 2, 3, 2].map(
-                    (num, index) => (
-                      <div
-                        key={index}
-                        className="small-box"
-                        style={{ backgroundColor: "#adcab3" }}
-                      >
-                        <span style={{ color: "#043e54" }}>{num}</span>
+                  <div className="content" style={{ marginTop: "0px" }}>
+                    <div
+                      className="team-section"
+                      style={{
+                        borderBottomWidth: "0px",
+                        borderBottomStyle: "solid",
+                        paddingBottom: "0px",
+                        paddingTop: "0px",
+                      }}
+                    >
+                      <div className="team">
+                        <img
+                          src="../images/dashboard_main/B (1).png"
+                          alt="Team 1"
+                        />
+                        <p>NB W</p>
                       </div>
-                    )
-                  )}
-                </div>
-              </div>
-            </div>
-
-            <div
-              className="admin-section"
-              style={{ backgroundColor: "#df2330" }}
-            >
-              <span style={{ color: "white" }}>ADMIN 50</span>
-              <img src="images/dashboard/arrow_down.png" alt="Down Arrow" />
-            </div>
-
-            <div className="box" style={{ marginTop: "0px" }}>
-              <div className="first-row">
-                <div className="small-box">
-                  <div
-                    className="top-part"
-                    style={{ backgroundColor: "#df2330" }}
-                  >
-                    <span>ADMIN</span>
-                  </div>
-                  <div className="bottom-part">
-                    <span>AMAN CHOUHAN</span>
-                  </div>
-                </div>
-
-                <div className="small-box">
-                  <span>Jan 26, Tue</span>
-                  <span>2025</span>
-                </div>
-
-                <div className="league-section">
-                  <h2 style={{ color: "#00ac4f" }}>
-                    BANGLADESH PREMIER LEAGUE
-                  </h2>
-                </div>
-                <div className="league-section">
-                  <p style={{ color: "#00546c" }}>
-                    Match: 53, Mon, 720, Domestic
-                  </p>
-                  <p style={{ color: "#00546c" }}>
-                    Share Bangla National Stadium
-                  </p>
-                </div>
-
-                <div className="team-section">
-                  <img src="images/dashboard/B (1).png" alt="Team 1 Logo" />
-                  <span>NB w</span>
-                  <span>vs</span>
-                  <span>CH W</span>
-                  <img src="images/dashboard/H (1).png" alt="Team 2 Logo" />
-                </div>
-
-                <div className="end-box">
-                  <div
-                    className="top-part"
-                    style={{ backgroundColor: "#017781" }}
-                  >
-                    <span style={{ color: "white" }}>13:30 AM (L)</span>
-                  </div>
-                  <div
-                    className="bottom-part"
-                    style={{ backgroundColor: "#ffff98" }}
-                  >
-                    <span style={{ color: "#00546c" }}>
-                      Starting in 18th-15th-49s
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="second-row">
-                <div className="small-boxes">
-                  <div className="small-box">
-                    <span>BATSMAN</span>
-                  </div>
-                  <div className="small-box">
-                    <span>BOWLER</span>
-                  </div>
-                  <div className="small-box">
-                    <span>OVER</span>
-                  </div>
-                  <div className="small-box">
-                    <span>EXTRA</span>
-                  </div>
-                  <div className="small-box">
-                    <span>OVER</span>
-                  </div>
-                  <div className="small-box">
-                    <span>EXTRA</span>
-                  </div>
-                  <div className="small-box">
-                    <span>WICKETS</span>
-                  </div>
-                  <div className="small-box">
-                    <span>MATCH</span>
-                  </div>
-                  <div className="small-box">
-                    <span>SERIES</span>
-                  </div>
-                  <div className="small-box">
-                    <span>CLIP</span>
-                  </div>
-                  <div className="small-box">
-                    <span>SERIES</span>
-                  </div>
-                  <div className="small-box">
-                    <span>CLIP</span>
-                  </div>
-                </div>
-
-                <div className="small-boxes">
-                  {[30, 30, 20, 10, 20, 10, 10, 10, 3, 2, 3, 2].map(
-                    (num, index) => (
                       <div
-                        key={index}
-                        className="small-box"
-                        style={{ backgroundColor: "#adcab3" }}
+                        className="timer"
+                        style={{
+                          paddingLeft: "5px",
+                          borderLeftWidth: "0px",
+                          borderLeftStyle: "solid",
+                          marginLeft: "30px",
+                          marginRight: "30px",
+                        }}
                       >
-                        <span style={{ color: "#043e54" }}>{num}</span>
+                        Starting in 18h:15m:49s
                       </div>
-                    )
-                  )}
+                      <div className="team">
+                        <img
+                          src="../images/dashboard_main/H (1).png"
+                          alt="Team 2"
+                        />
+                        <p>CH W</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="footer">
+                    <div className="footer-top">
+                      <div
+                        style={{
+                          paddingRight: "0px",
+                          paddingLeft: "0px",
+                          marginRight: "-97px",
+                          marginLeft: "-40px",
+                        }}
+                      >
+                        ODDS
+                      </div>
+                      <div style={{ paddingLeft: "0px", paddingRight: "0px" }}>
+                        REVIEW
+                      </div>
+                    </div>
+                    <div
+                      className="footer-bottom"
+                      style={{
+                        paddingLeft: "0px",
+                        paddingRight: "75px",
+                        marginLeft: "0px",
+                        left: "0px",
+                      }}
+                    >
+                      OPERATOR NAME{" "}
+                      <img
+                        src="../images/dashboard_main/arrow_down.png"
+                        alt="Arrow Down"
+                      />
+                      <div
+                        className="ticket"
+                        style={{
+                          left: "226.983px",
+                          right: "0px",
+                          borderTopWidth: "0px",
+                          borderTopStyle: "solid",
+                          paddingTop: "23px",
+                          paddingBottom: "0px",
+                          borderBottomWidth: "0px",
+                          borderBottomStyle: "solid",
+                          marginTop: "0px",
+                          top: "-42px",
+                          marginBottom: "-10px",
+                        }}
+                      >
+                        <img
+                          src="../images/dashboard_main/Group 1829.png"
+                          alt="Group 1829"
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
+              <div className="card">
+              <div className="left-section">MATCH 33, MEN, DOMESTIC</div>
+              <div className="main-content-card">
+                <div
+                  className="header-card content"
+                  style={{
+                    marginBottom: "0px",
+                    borderBottomWidth: "0px",
+                    borderBottomStyle: "solid",
+                    bottom: "20px",
+                  }}
+                >
+                  <div className="row">
+                    <h5>BANGLADESH PREMIER LEAGUE</h5>
+                    <br />
+                    <p className="sub-text">
+                      26-Jan-2025, 13:30 (L) 11:30 (D)
+                      <br />
+                      Shere Bangla National Stadium
+                    </p>
+                  </div>
+
+                  <p className="sub-text"></p>
+                  <div
+                    className="first-class"
+                    style={{
+                      marginLeft: "0px",
+                      left: "227.467px",
+                      right: "0px",
+                      borderLeftWidth: "0px",
+                      borderLeftStyle: "solid",
+                      paddingLeft: "5px",
+                      bottom: "0px",
+                      top: "0px",
+                      marginTop: "0px",
+                      borderTopWidth: "0px",
+                      borderTopStyle: "solid",
+                      paddingTop: "25px",
+                    }}
+                  >
+                    FIRST CLASS
+                  </div>
+                </div>
+
+                <div className="content" style={{ marginTop: "0px" }}>
+                  <div
+                    className="team-section"
+                    style={{
+                      borderBottomWidth: "0px",
+                      borderBottomStyle: "solid",
+                      paddingBottom: "0px",
+                      paddingTop: "0px",
+                    }}
+                  >
+                    <div className="team">
+                      <img
+                        src="../images/dashboard_main/B (1).png"
+                        alt="Team 1"
+                      />
+                      <p>NB W</p>
+                    </div>
+                    <div
+                      className="timer"
+                      style={{
+                        paddingLeft: "5px",
+                        borderLeftWidth: "0px",
+                        borderLeftStyle: "solid",
+                        marginLeft: "30px",
+                        marginRight: "30px",
+                      }}
+                    >
+                      Starting in 18h:15m:49s
+                    </div>
+                    <div className="team">
+                      <img
+                        src="../images/dashboard_main/H (1).png"
+                        alt="Team 2"
+                      />
+                      <p>CH W</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="footer">
+                  <div className="footer-top">
+                    <div
+                      style={{
+                        paddingRight: "0px",
+                        paddingLeft: "0px",
+                        marginRight: "-97px",
+                        marginLeft: "-40px",
+                      }}
+                    >
+                      ODDS
+                    </div>
+                    <div style={{ paddingLeft: "0px", paddingRight: "0px" }}>
+                      REVIEW
+                    </div>
+                  </div>
+                  <div
+                    className="footer-bottom"
+                    style={{
+                      paddingLeft: "0px",
+                      paddingRight: "75px",
+                      marginLeft: "0px",
+                      left: "0px",
+                    }}
+                  >
+                    OPERATOR NAME{" "}
+                    <img
+                      src="../images/dashboard_main/arrow_down.png"
+                      alt="Arrow Down"
+                    />
+                    <div
+                      className="ticket"
+                      style={{
+                        left: "226.983px",
+                        right: "0px",
+                        borderTopWidth: "0px",
+                        borderTopStyle: "solid",
+                        paddingTop: "23px",
+                        paddingBottom: "0px",
+                        borderBottomWidth: "0px",
+                        borderBottomStyle: "solid",
+                        marginTop: "0px",
+                        top: "-42px",
+                        marginBottom: "-10px",
+                      }}
+                    >
+                      <img
+                        src="../images/dashboard_main/Group 1829.png"
+                        alt="Group 1829"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+
+              <div className="card">
+                <div className="left-section">MATCH 33, MEN, DOMESTIC</div>
+                <div className="main-content-card">
+                  <div
+                    className="header-card content"
+                    style={{
+                      marginBottom: "0px",
+                      borderBottomWidth: "0px",
+                      borderBottomStyle: "solid",
+                      bottom: "20px",
+                    }}
+                  >
+                    <div className="row">
+                      <h5>BANGLADESH PREMIER LEAGUE</h5>
+                      <br />
+                      <p className="sub-text">
+                        26-Jan-2025, 13:30 (L) 11:30 (D)
+                        <br />
+                        Shere Bangla National Stadium
+                      </p>
+                    </div>
+
+                    <p className="sub-text"></p>
+                    <div
+                      className="first-class"
+                      style={{
+                        marginLeft: "0px",
+                        left: "227.467px",
+                        right: "0px",
+                        borderLeftWidth: "0px",
+                        borderLeftStyle: "solid",
+                        paddingLeft: "5px",
+                        bottom: "0px",
+                        top: "0px",
+                        marginTop: "0px",
+                        borderTopWidth: "0px",
+                        borderTopStyle: "solid",
+                        paddingTop: "25px",
+                      }}
+                    >
+                      FIRST CLASS
+                    </div>
+                  </div>
+
+                  <div className="content" style={{ marginTop: "0px" }}>
+                    <div
+                      className="team-section"
+                      style={{
+                        borderBottomWidth: "0px",
+                        borderBottomStyle: "solid",
+                        paddingBottom: "0px",
+                        paddingTop: "0px",
+                      }}
+                    >
+                      <div className="team">
+                        <img
+                          src="../images/dashboard_main/B (1).png"
+                          alt="Team 1"
+                        />
+                        <p>NB W</p>
+                      </div>
+                      <div
+                        className="timer"
+                        style={{
+                          paddingLeft: "5px",
+                          borderLeftWidth: "0px",
+                          borderLeftStyle: "solid",
+                          marginLeft: "30px",
+                          marginRight: "30px",
+                        }}
+                      >
+                        Starting in 18h:15m:49s
+                      </div>
+                      <div className="team">
+                        <img
+                          src="../images/dashboard_main/H (1).png"
+                          alt="Team 2"
+                        />
+                        <p>CH W</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="footer">
+                    <div className="footer-top">
+                      <div
+                        style={{
+                          paddingRight: "0px",
+                          paddingLeft: "0px",
+                          marginRight: "-97px",
+                          marginLeft: "-40px",
+                        }}
+                      >
+                        ODDS
+                      </div>
+                      <div style={{ paddingLeft: "0px", paddingRight: "0px" }}>
+                        REVIEW
+                      </div>
+                    </div>
+                    <div
+                      className="footer-bottom"
+                      style={{
+                        paddingLeft: "0px",
+                        paddingRight: "75px",
+                        marginLeft: "0px",
+                        left: "0px",
+                      }}
+                    >
+                      OPERATOR NAME{" "}
+                      <img
+                        src="../images/dashboard_main/arrow_down.png"
+                        alt="Arrow Down"
+                      />
+                      <div
+                        className="ticket"
+                        style={{
+                          left: "226.983px",
+                          right: "0px",
+                          borderTopWidth: "0px",
+                          borderTopStyle: "solid",
+                          paddingTop: "23px",
+                          paddingBottom: "0px",
+                          borderBottomWidth: "0px",
+                          borderBottomStyle: "solid",
+                          marginTop: "0px",
+                          top: "-42px",
+                          marginBottom: "-10px",
+                        }}
+                      >
+                        <img
+                          src="../images/dashboard_main/Group 1829.png"
+                          alt="Group 1829"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+                <div className="card">
+                <div className="left-section">MATCH 33, MEN, DOMESTIC</div>
+                <div className="main-content-card">
+                  <div
+                    className="header-card content"
+                    style={{
+                      marginBottom: "0px",
+                      borderBottomWidth: "0px",
+                      borderBottomStyle: "solid",
+                      bottom: "20px",
+                    }}
+                  >
+                    <div className="row">
+                      <h5>BANGLADESH PREMIER LEAGUE</h5>
+                      <br />
+                      <p className="sub-text">
+                        26-Jan-2025, 13:30 (L) 11:30 (D)
+                        <br />
+                        Shere Bangla National Stadium
+                      </p>
+                    </div>
+
+                    <p className="sub-text"></p>
+                    <div
+                      className="first-class"
+                      style={{
+                        marginLeft: "0px",
+                        left: "227.467px",
+                        right: "0px",
+                        borderLeftWidth: "0px",
+                        borderLeftStyle: "solid",
+                        paddingLeft: "5px",
+                        bottom: "0px",
+                        top: "0px",
+                        marginTop: "0px",
+                        borderTopWidth: "0px",
+                        borderTopStyle: "solid",
+                        paddingTop: "25px",
+                      }}
+                    >
+                      FIRST CLASS
+                    </div>
+                  </div>
+
+                  <div className="content" style={{ marginTop: "0px" }}>
+                    <div
+                      className="team-section"
+                      style={{
+                        borderBottomWidth: "0px",
+                        borderBottomStyle: "solid",
+                        paddingBottom: "0px",
+                        paddingTop: "0px",
+                      }}
+                    >
+                      <div className="team">
+                        <img
+                          src="../images/dashboard_main/B (1).png"
+                          alt="Team 1"
+                        />
+                        <p>NB W</p>
+                      </div>
+                      <div
+                        className="timer"
+                        style={{
+                          paddingLeft: "5px",
+                          borderLeftWidth: "0px",
+                          borderLeftStyle: "solid",
+                          marginLeft: "30px",
+                          marginRight: "30px",
+                        }}
+                      >
+                        Starting in 18h:15m:49s
+                      </div>
+                      <div className="team">
+                        <img
+                          src="../images/dashboard_main/H (1).png"
+                          alt="Team 2"
+                        />
+                        <p>CH W</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="footer">
+                    <div className="footer-top">
+                      <div
+                        style={{
+                          paddingRight: "0px",
+                          paddingLeft: "0px",
+                          marginRight: "-97px",
+                          marginLeft: "-40px",
+                        }}
+                      >
+                        ODDS
+                      </div>
+                      <div style={{ paddingLeft: "0px", paddingRight: "0px" }}>
+                        REVIEW
+                      </div>
+                    </div>
+                    <div
+                      className="footer-bottom"
+                      style={{
+                        paddingLeft: "0px",
+                        paddingRight: "75px",
+                        marginLeft: "0px",
+                        left: "0px",
+                      }}
+                    >
+                      OPERATOR NAME{" "}
+                      <img
+                        src="../images/dashboard_main/arrow_down.png"
+                        alt="Arrow Down"
+                      />
+                      <div
+                        className="ticket"
+                        style={{
+                          left: "226.983px",
+                          right: "0px",
+                          borderTopWidth: "0px",
+                          borderTopStyle: "solid",
+                          paddingTop: "23px",
+                          paddingBottom: "0px",
+                          borderBottomWidth: "0px",
+                          borderBottomStyle: "solid",
+                          marginTop: "0px",
+                          top: "-42px",
+                          marginBottom: "-10px",
+                        }}
+                      >
+                        <img
+                          src="../images/dashboard_main/Group 1829.png"
+                          alt="Group 1829"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>         
             </div>
+
+            
+
           </div>
         </div>
       </div>

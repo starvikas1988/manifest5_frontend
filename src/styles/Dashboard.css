@@ -1,189 +1,695 @@
-/* General Layout for the Dashboard */
-.dashboard {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100vh;
-    background-color: #e7f7f7;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+}
+
+/* Header Styles */
+.header {
+  width: 100%;
+  height: 90px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 35px;
+}
+
+.header-logo img {
+  width: 232px;
+  height: 50px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+}
+
+.profile img {
+  width: 25px;
+  height: 25px;
+  margin-right: 34.5px;
+}
+
+.profile-name {
+  font-size: 10px;
+  font-weight: 600;
+  color: #0C7C73;
+  position: absolute;
+  /* Position the name absolutely */
+  top: 30px;
+  /* Adjusted to position below the profile image */
+  right: 34.5px;
+  /* Align with the profile image */
+  text-align: center;
+  /* Center the text */
+  width: 28px;
+  /* Width of the name */
+  height: 13px;
+  /* Height of the name */
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 20%;
+  height: 1210px;
+  background-color: #043E54;
+  padding: 30px;
+}
+
+.menu-item {
+  width: 210px;
+  height: 48px;
+  background-color: #00546C;
+  display: flex;
+  align-items: center;
+  padding-left: 20.99px;
+  margin-bottom: 25px;
+  position: relative;
+  border-radius: 5px;
+}
+
+.menu-item.last-menu {
+  background-color: #02707B;
+}
+
+.menu-item img {
+  width: 24px;
+  height: 24px;
+  margin: 13px 14px 11px 0;
+}
+
+.menu-item span {
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  margin-left: 12.57px;
+}
+
+.last-menu img:last-child {
+  width: 6.13px;
+  height: 12.27px;
+  position: absolute;
+  right: 18.87px;
+  top: 5px;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  background-color: #44cec6;
+}
+
+/* Body Container */
+.body-container {
+  padding: 31px 0px 0 41px;
+  width: 80%;
+}
+
+/* Box Styles */
+.box {
+  width: 95%;
+  min-height: 90.5px;
+  /* Ensures a minimum height */
+  background-color: white;
+  border-radius: 5px;
+  padding: 8px;
+  margin-bottom: 20px;
+  /* Space between boxes */
+  display: flex;
+  /* Enables flexible content layout */
+  flex-direction: column;
+  /* Stacks content vertically */
+}
+
+
+/* Heading Box */
+.heading-box {
+  width: 100%;
+  height: 33px;
+  background-color: #00546C;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 11px 0 8px;
+  position: relative;
+  border-radius: 5px;
+}
+
+.heading-text {
+  font-size: 18px;
+  font-weight: 800;
+  color: white;
+  width: 234px;
+  height: 25px;
+  margin-left: 350px;
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between toggle & text */
+}
+
+/* Adjust the toggle button */
+.toggle {
+  width: 32px;
+  height: 16px;
+  background-color: #df2330;
+  border-radius: 15px;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Ensure "ALL REPORTS" text is properly aligned */
+.all-reports {
+  font-size: 12px;
+  font-weight: 800;
+  color: white;
+  white-space: nowrap; /* Prevents text from breaking */
+}
+
+.toggle:before {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  border-radius: 50%;
+  top: 2px;
+  left: 4px;
+  transition: transform 0.3s;
+}
+
+.toggle.on:before {
+  transform: translateX(20px);
+}
+
+.all-reports {
+  font-size: 12px;
+  font-weight: 800;
+  color: white;
+  width: 81px;
+  height: 22px;
+  margin-right: 55px;
+}
+
+/* Content Sections */
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #00546C;
+  margin-bottom: 8px;
+}
+
+.section-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 8px;
+}
+
+.section-number {
+  font-size: 30px;
+  font-weight: 800;
+  position: absolute;
+  top: 35px;
+  margin-left: 130px;
+  transform: translateX(-50%);
+}
+
+/* Separator Line */
+.separator {
+  width: 1px;
+  height: 76px;
+  background-color: #3AAFA9;
+}
+
+.all-container {
+  display: flex;
+  width: 100%;
+}
+
+/* Field Container */
+.field-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  /* Space between field name and input/button */
+}
+
+/* Field Name */
+.field-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0C7C73;
+  display: block;
+  /* Ensures text does not interfere with the image */
+  text-align: center;
+
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 30px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 8px 30px 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #ADCAB3;
+  /* Default background color */
+  font-size: 12px;
+}
+
+.search-bar img {
+  position: absolute;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* Custom Background Colors for Search Bars */
+.series-search input {
+  background-color: #ADCAB3;
+  /* Change this color as needed */
+}
+
+.match-search input {
+  background-color: #ADCAB3;
+  /* Change this color as needed */
+}
+
+/* Date Picker */
+.date-picker {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 30px;
+}
+
+.date-picker input {
+  width: 100%;
+  height: 30px;
+  padding: 5px 30px 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #ADCAB3;
+  font-size: 12px;
+}
+
+.date-picker img {
+  position: absolute;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* Buttons Container */
+.buttons-container {
+  width: 20%;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  /* Space between buttons */
+}
+
+.buttons button {
+  background-color: #00546C;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  /* Space between icon and text */
+}
+
+.buttons button img {
+  width: 20px;
+  height: 20px;
+}
+
+.field-container img {
+  width: 30px;
+  /* Set fixed width */
+  height: 30px;
+  /* Set fixed height */
+  object-fit: contain;
+  /* Ensure images maintain aspect ratio */
+}
+
+
+
+/* 3rd part */
+
+/* List View Section */
+.list-view-section {
+  width: 108px;
+  height: 30px;
+  background-color: #00546C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.list-view-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+}
+
+/* Big Box */
+.big-box {
+  width: 100%;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* Top Bar */
+.top-bar {
+  width: 240px;
+  height: 30px;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.top-bar img {
+  width: 20px;
+  height: 20px;
+}
+
+/* First Row */
+.first-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Small Box */
+.small-box {
+  width: 120px;
+  height: 33px;
+  background-color: #017781;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  color: white;
+}
+
+.small-box .top-part,
+.small-box .bottom-part {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.small-box .top-part {
+  background-color: #9F41A4;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: white;
+}
+
+.small-box .bottom-part {
+  background-color: #00546C;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: white;
+}
+
+/* League Section */
+.league-section {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.league-section h2 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #00546C;
+  margin-bottom: 5px;
+}
+
+.league-section p {
+  font-size: 12px;
+  color: #555;
+}
+
+
+
+
+
+/* End Box */
+.end-box {
+  width: 149px;
+  height: 33px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.end-box .top-part,
+.end-box .bottom-part {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.end-box .top-part {
+  background-color: #f0f0f0;
+}
+
+.end-box .bottom-part {
+  background-color: #e0e0e0;
+}
+
+/* Second Row */
+.second-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.small-boxes {
+  display: flex;
+  gap: 10px;
+}
+
+.small-boxes .small-box {
+  width: 60px;
+  height: 30px;
+  background-color: #017781;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  font-size: 12px;
+  color: white;
+}
+
+.admin-section {
+  width: 200px;
+  height: 22px;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  border-radius: 5px;
+}
+
+.box span,
+.box p,
+.box h2 {
+  font-size: 12px;
+}
+
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows cards to wrap to the next line */
+  gap: 20px; /* Optional: space between cards */
+}
+
+
+.card {
+  width: 320px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: flex;
+}
+
+.left-section {
+  background: #933c98;
+  color: white;
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  text-orientation: mixed;
+  padding: 10px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-content-card {
+  flex: 1;
+  background: #fff;
+}
+
+.header-card {
+  background: #00546C;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+}
+
+.first-class {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #933c98;
+  color: white;
+  padding: 5px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.content {
+  padding: 10px;
+  text-align: center;
+}
+
+.team-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.team img {
+  width: 40px;
+  height: 40px;
+}
+
+.timer {
+  background: yellow;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-top {
+  display: flex;
+  background: #ddd;
+}
+
+.footer-top div {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.footer-bottom {
+  background: #444;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  position: relative;
+}
+
+.ticket {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  background: #933c98;
+  color: white;
+  padding: 5px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.sub-text {
+  font-size: 10px;
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex: 1 1 100%; /* Each card takes up full width on smaller screens */
+    max-width: 100%;
   }
-  
-  .dashboard-container {
-    display: flex;
-    flex: 1;
-    width: 100%;
-  }
-  
-  /* Header Styles */
-  /* .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #F2FAFC;
-    color: white;
-  } */
-  
-  .header .logo img {
-    height: 40px;
-  }
-  
-  .header .logout-button {
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .header .logout-button:hover {
-    background-color: #b02a37;
-  }
-  
-  /* Sidebar Styles */
-  .sidebar {
-    width: 220px;
-    background-color: #00474d;
-    color: white;
-    padding: 15px;
-  }
-  
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .sidebar ul li {
-    padding: 10px;
-    cursor: pointer;
-    display: flex;
-  }
-  
-  .sidebar ul li:hover {
-    background-color: #006d75;
-  }
-  
-  .sidebar ul li i {
-    margin-right: 10px;
-  }
-  
-  .sidebar .submenu {
-    margin-left: 20px;
-    display: none;
-  }
-  
-  .sidebar .submenu.open {
-    display: block;
-  }
-  
-  .sidebar .submenu li {
-    padding: 5px 0;
-    font-size: 14px;
-  }
-  
-  /* Main Content Styles */
-  .main-content {
-    flex: 1;
-    padding: 20px;
-    background-color: #d3f3f3;
-  }
-  
-  .form-section, .table-section {
-    background-color: #c2f0f0;
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-  }
-  
-  /* Form Styles */
-  .form-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-  }
-  
-  .form-grid input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-  }
-  
-  /* Button Styles */
-  .buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-  }
-  
-  .buttons button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 14px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .buttons .save {
-    background-color: #007f80;
-    color: white;
-  }
-  
-  .buttons .refresh {
-    background-color: #ffc107;
-    color: white;
-  }
-  
-  .buttons .cancel {
-    background-color: #dc3545;
-    color: white;
-  }
-  
-  /* Table Styles */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  table th, table td {
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #ccc;
-  }
-  
-  table th {
-    background-color: #007f80;
-    color: white;
-  }
-  
-  .status {
-    cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 5px;
-    text-align: center;
-  }
-  
-  .status.active {
-    background-color: #007f80;
-    color: white;
-  }
-  
-  .status.inactive {
-    background-color: #dc3545;
-    color: white;
-  }
-  
-  /* Action Icons in Table */
-  .action-icons {
-    display: flex;
-    gap: 10px;
-    cursor: pointer;
-  }
-  
+}
