@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 import axiosInstance from "../utils/axiosInstance";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
+import NamingHeader from "./NamingHeader";
 import "../styles/CategoryManage.css";
+
 
 const CategoryManage = () => {
   const [categories, setCategories] = useState([]); // Existing categories
@@ -125,52 +127,7 @@ const CategoryManage = () => {
         <div className="category-management-container">
           <Sidebar />
           <div className="main-content">
-            <div className="match-card">
-              <div className="match-info">
-                <div className="match-category">
-                  <p>DOMESTIC WOMEN</p>
-                  <img src="../images/female1.png" />
-                  <p>MATCH 33</p>
-                  <p>GROUP A</p>
-                </div>
-                <div className="league-details">
-                  <h2 className="head-h2">BANGLADESH PREMIER LEAGUE</h2>
-                  <p>SHERE BANGLA NATIONAL STADIUM</p>
-                  <p>26-JAN-2025</p>
-                </div>
-              </div>
-
-              <div className="team-section">
-                <div className="team">
-                  <img src="../images/B.png" alt="NB W" />
-                  <span>NB W</span>
-                </div>
-                <span className="vs">VS</span>
-                <div className="team">
-                  <span>CH W</span>
-                  <img src="../images/H.png" alt="CH W" />
-                </div>
-              </div>
-
-              <div className="timing-market">
-                <div className="timing">
-                  <p>🕒 12:30 (GMT)</p>
-                  <p>🕒 13:30 (GROUND)</p>
-                  <p>🕒 11:30 (LOCAL)</p>
-                </div>
-                <div className="countdown">
-                  <span className="time-box">18</span> :
-                  <span className="time-box">15</span> :
-                  <span className="time-box">49</span>
-                </div>
-                <div className="market-section">
-                  <button className="market-btn">MARKET</button>
-                  <p>TOTAL: 200</p>
-                  <p>SELECTED: 100</p>
-                  <button className="verify-btn">VERIFY & SUBMIT</button>
-                </div>
-              </div>
-            </div>
+             <NamingHeader />
             <div className="category-container">
               <h3 className="category-name">
                 Existing Categories ({categories.length})

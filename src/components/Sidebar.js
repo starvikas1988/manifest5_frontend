@@ -31,7 +31,7 @@ const Sidebar = () => {
         <li onClick={() => setReportsOpen(!isReportsOpen)}>
           <div style={{display:"flex"}}><i><img src='../images/lab_profile.png'/></i>  Reports (06)</div>
           <ul className={`submenu ${isReportsOpen ? 'open' : ''}`}>
-            <li><Link to="/">Admin (06)</Link></li>
+            <li><Link to="/admin_reports_dashboard">Admin (06)</Link></li>
             <li><Link to="/">Operator (42)</Link></li>
             <li><Link to="/">Match Card (06)</Link></li>
             <li><Link to="/">Review (06)</Link></li>

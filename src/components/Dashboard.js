@@ -1,6 +1,8 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import axiosInstance from "../utils/axiosInstance"; // Adjust path as needed
 import Header from "./Header";
 import Sidebar from "./Sidebar";
@@ -8,6 +10,8 @@ import "../styles/Dashboard.css";
 
 const Dashboard = () => {
   const [users, setUsers] = useState([]);
+  const [startDate, setStartDate] = useState(new Date());
+  const datePickerRef = useRef(null);
   const navigate = useNavigate();
   const authToken = localStorage.getItem("token"); // Check if logged in
 
@@ -70,6 +74,17 @@ const Dashboard = () => {
       alert("Logout failed. Please try again.");
     }
   };
+
+  const handledatepickerClick = () => {
+    if (datePickerRef.current) {
+      datePickerRef.current.setOpen(true); // Open the DatePicker
+    }
+  };
+
+  const handleRaiseTicket = ()=>{
+    navigate('/manage-ticket');
+  }
+  
   return (
     <>
       <div className="dashboard">
@@ -223,11 +238,19 @@ const Dashboard = () => {
                     DATE
                   </span>
                   <div className="date-picker" style={{ bottom: "-11px" }}>
-                    <input type="text" />
+                    <DatePicker
+                      ref={datePickerRef} 
+                      selected={startDate}
+                      onChange={(date) => setStartDate(date)}
+                      dateFormat="yyyy-MM-dd" // Customize date format as needed
+                      className="date-picker-input" // Add a class for styling
+                      placeholderText="Select a date"
+                    />
                     <img
                       style={{ width: "55px", right: "-12px" }}
                       src="../images/dashboard_main/Frame 1966.png"
                       alt="Calendar Icon"
+                      onClick={handledatepickerClick}
                     />
                   </div>
                 </div>
@@ -255,7 +278,7 @@ const Dashboard = () => {
                     alt="Card Icon"
                   />
                 </div>
-                <div className="field-container">
+                <div className="field-container" onClick={handleRaiseTicket} style={{ cursor: 'pointer' }}>
                   <span className="field-name">
                     RAISE
                     <br /> TICKET

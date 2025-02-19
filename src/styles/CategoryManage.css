@@ -26,13 +26,13 @@
     background-color: #fff;
     border-radius: 10px;
     padding: 25px;
-    width: 90%;
-    max-width: 1100px;
+    width: 95%;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    margin-top: 20px;
 }
 
 /* Category List */
@@ -243,130 +243,6 @@
     color: white;
 }
 
-
-.match-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #065a71;
-    color: white;
-    padding: 15px 20px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 1100px;
-}
-
-/* Left Side: Match Info */
-.match-info {
-    display: flex;
-    align-items: center;
-}
-
-.match-category {
-    background-color: #822a85;
-    padding: 10px;
-    text-align: center;
-    border-radius: 10px;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.league-details {
-    margin-left: 15px;
-}
-
-.league-details h2 {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.league-details p {
-    font-size: 14px;
-}
-
-/* Middle: Team Info */
-.team-section {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.team {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.team img {
-    width: 35px;
-    height: 35px;
-}
-
-.vs {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-/* Right Side: Timing & Market */
-.timing-market {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.timing {
-    font-size: 14px;
-}
-
-.countdown {
-    display: flex;
-    align-items: center;
-    background-color: #1f1f1f;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
-.time-box {
-    font-size: 16px;
-    font-weight: bold;
-    background-color: #d1d1d1;
-    color: black;
-    padding: 3px 6px;
-    border-radius: 3px;
-}
-
-/* Market Section */
-.market-section {
-    background-color: #037d50;
-    padding: 10px;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.market-btn {
-    background-color: #005fa3;
-    color: white;
-    border: none;
-    padding: 6px 10px;
-    border-radius: 5px;
-    font-size: 12px;
-    cursor: pointer;
-}
-
-.verify-btn {
-    background-color: #06a94d;
-    color: white;
-    border: none;
-    padding: 6px 10px;
-    border-radius: 5px;
-    font-size: 12px;
-    cursor: pointer;
-    margin-top: 5px;
-}
-
-.head-h2 {
-    color: rgb(255, 255, 255);
-}
 
 /* Responsive */
 @media (max-width: 900px) {

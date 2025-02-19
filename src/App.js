@@ -1,6 +1,9 @@
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 import LoginPage from './components/LoginPage';
 import Dashboard from './components/Dashboard';
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -16,6 +19,7 @@ import OperatorLogin from './components/OperatorLogin';
 import OperatorDashboard from './components/OperatorDashboard';
 import OperatorProtectedRoute from './components/OperatorProtectedRoute';
 import MarketManage from './components/MarketManage';
+import AdminReportsDashboard from './components/AdminReportsDashboard';
 import Crm from './components/Crm';
 function App() {
   return (
@@ -62,11 +66,19 @@ function App() {
             </ProtectedRoute>
           }
         />
-           <Route
+        <Route
           path="/crm"
           element={
             <ProtectedRoute>
               <Crm />
+            </ProtectedRoute>
+          }
+        />
+         <Route
+          path="/admin_reports_dashboard"
+          element={
+            <ProtectedRoute>
+              <AdminReportsDashboard />
             </ProtectedRoute>
           }
         />
