@@ -708,6 +708,16 @@ body {
   margin-top: 5px;
 }
 
+.dropdown-select {
+  position: absolute;
+  top: -1px; /* Adjust as needed */
+  left: 0;
+  width: 100%;
+  padding: 5px;
+}
+
+
+
 @media (max-width: 768px) {
   .card {
     flex: 1 1 100%;
