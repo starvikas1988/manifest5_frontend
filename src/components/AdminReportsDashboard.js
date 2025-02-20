@@ -7,7 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import axiosInstance from "../utils/axiosInstance"; // Adjust path as needed
 import Header from "./Header";
 import Sidebar from "./Sidebar";
-import "../styles/AdminReportsDashboard.css";
+ import "../styles/AdminReportsDashboard.css";
 
 const AdminReportsDashboard = () => {
   const [users, setUsers] = useState([]);
@@ -104,8 +104,8 @@ const AdminReportsDashboard = () => {
               </div>
 
               {/* First Row */}
-              <div className="content-container">
-                <div className="content">
+              <div className="content-container1">
+                <div className="content1">
                   {/* TOTAL MATCH */}
                   <div className="section">
                     <span className="section-title">TOTAL MATCH</span>
@@ -305,8 +305,8 @@ const AdminReportsDashboard = () => {
               </div>
 
               {/* First Row */}
-              <div className="content-container">
-              <div className="content">
+              <div className="content-container1">
+              <div className="content1">
                 {/* TOTAL MATCH */}
                 <div className="section">
                   <span className="section-title">OPERATOR 1</span>
@@ -408,8 +408,8 @@ const AdminReportsDashboard = () => {
               </div>
 
               {/* First Row */}
-              <div className="content-container">
-              <div className="content">
+              <div className="content-container1">
+              <div className="content1">
                 {/* TOTAL MATCH */}
                 <div className="section">
                   <span className="section-title">DATE</span>
@@ -526,8 +526,8 @@ const AdminReportsDashboard = () => {
               </div>
 
               {/* First Row */}
-              <div className="content-container">
-              <div className="content">
+              <div className="content-container1">
+              <div className="content1">
                 {/* TOTAL MATCH */}
                 <div className="section">
                   <span className="section-title">ADMIN</span>

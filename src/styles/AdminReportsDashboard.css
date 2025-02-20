@@ -414,334 +414,11 @@
     width: 20px;
     height: 20px;
   }
-  
-  .field-container img {
-    width: 30px;
-    /* Set fixed width */
-    height: 30px;
-    /* Set fixed height */
-    object-fit: contain;
-    /* Ensure images maintain aspect ratio */
-  }
-  
-  
-  
-  /* 3rd part */
-  
-  /* List View Section */
-  .list-view-section {
-    width: 108px;
-    height: 30px;
-    background-color: #00546C;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    margin-bottom: 20px;
-  }
-  
-  .list-view-text {
-    font-size: 14px;
-    font-weight: 600;
-    color: white;
-  }
-  
-  /* Big Box */
-  .big-box {
-    width: 100%;
-    background-color: white;
-    border-radius: 5px;
-    padding: 10px;
-  }
-  
-  /* Top Bar */
-  .top-bar {
-    width: 240px;
-    height: 30px;
-    background-color: #f0f0f0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 10px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-  }
-  
-  .top-bar img {
-    width: 20px;
-    height: 20px;
-  }
-  
-  /* First Row */
-  .first-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  /* Small Box */
-  .small-box {
-    width: 120px;
-    height: 33px;
-    background-color: #017781;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    color: white;
-  }
-  
-  .small-box .top-part,
-  .small-box .bottom-part {
-    width: 100%;
-    height: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  
-  }
-  
-  .small-box .top-part {
-    background-color: #9F41A4;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    color: white;
-  }
-  
-  .small-box .bottom-part {
-    background-color: #00546C;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    color: white;
-  }
-  
-  /* League Section */
-  .league-section {
-    flex-grow: 1;
-    text-align: center;
-  }
-  
-  .league-section h2 {
-    font-size: 18px;
-    font-weight: 800;
-    color: #00546C;
-    margin-bottom: 5px;
-  }
-  
-  .league-section p {
-    font-size: 12px;
-    color: #555;
-  }
-  
-  
-  
-  
-  
-  /* End Box */
-  .end-box {
-    width: 149px;
-    height: 33px;
-    display: flex;
-    flex-direction: column;
-    border-radius: 5px;
-    overflow: hidden;
-  }
-  
-  .end-box .top-part,
-  .end-box .bottom-part {
-    width: 100%;
-    height: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-  }
-  
-  .end-box .top-part {
-    background-color: #f0f0f0;
-  }
-  
-  .end-box .bottom-part {
-    background-color: #e0e0e0;
-  }
-  
-  /* Second Row */
-  .second-row {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .small-boxes {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .small-boxes .small-box {
-    width: 60px;
-    height: 30px;
-    background-color: #017781;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    font-size: 12px;
-    color: white;
-  }
-  
-  .admin-section {
-    width: 200px;
-    height: 22px;
-    background-color: #f0f0f0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 10px;
-    border-radius: 5px;
-  }
-  
-  .box p,
-  .box h2 {
-    font-size: 12px;
-  }
 
-  .box-span{
-    font-size: 16px;
-  }
-  
-  
-  .card-container {
-    display: flex;
-    flex-wrap: wrap; /* Allows cards to wrap to the next line */
-    gap: 20px; /* Optional: space between cards */
-  }
-  
-  
-  .card {
-    width: 320px;
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
-    display: flex;
-  }
-  
-  .left-section {
-    background: #933c98;
-    color: white;
-    writing-mode: vertical-lr;
-    transform: rotate(180deg);
-    text-orientation: mixed;
-    padding: 10px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .main-content-card {
-    flex: 1;
-    background: #fff;
-  }
-  
-  .header-card {
-    background: #00546C;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    font-weight: bold;
-    position: relative;
-  }
-  
-  .first-class {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #933c98;
-    color: white;
-    padding: 5px;
-    border-radius: 3px;
-    font-size: 12px;
-  }
-  
-  /* .content {
-    padding: 10px;
-    text-align: center;
-  } */
-  
-  .team-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-  }
-  
-  .team {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1;
-  }
-  
-  .team img {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .timer {
-    background: yellow;
-    padding: 5px;
-    border-radius: 5px;
-    font-weight: bold;
-  }
-  
-  .footer {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .footer-top {
-    display: flex;
-    background: #ddd;
-  }
-  
-  .footer-top div {
-    flex: 1;
-    text-align: center;
-    padding: 10px;
-    font-weight: bold;
-  }
-  
-  .footer-bottom {
-    background: #444;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    font-weight: bold;
-    position: relative;
-  }
-  
-  .ticket {
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-    background: #933c98;
-    color: white;
-    padding: 5px;
-    border-radius: 3px;
-    font-size: 12px;
-  }
-  
-  .sub-text {
-    font-size: 10px;
-    margin-top: 5px;
-  }
+
 
   /* SCROLL CONTAINER */
-.content-container {
+.content-container1 {
     width: 100%;
     overflow-x: auto; /* Enables horizontal scrolling */
     white-space: nowrap; /* Prevents wrapping */
@@ -750,7 +427,7 @@
   }
   
   /* INNER CONTENT */
-  .content {
+  .content1 {
     display: flex; /* Aligns items in a row */
     gap: 15px; /* Space between items */
     min-width: max-content; /* Prevents shrinking */
@@ -765,21 +442,21 @@
   }
   
   /* SCROLLBAR STYLING */
-  .content-container::-webkit-scrollbar {
+  .content-container1::-webkit-scrollbar {
     height: 8px; /* Height of the scrollbar */
   }
   
-  .content-container::-webkit-scrollbar-track {
+  .content-container1::-webkit-scrollbar-track {
     background: #f1f1f1; /* Scrollbar track color */
     border-radius: 4px;
   }
   
-  .content-container::-webkit-scrollbar-thumb {
+  .content-container1::-webkit-scrollbar-thumb {
     background: #888; /* Scrollbar thumb color */
     border-radius: 4px;
   }
   
-  .content-container::-webkit-scrollbar-thumb:hover {
+  .content-container1::-webkit-scrollbar-thumb:hover {
     background: #555; /* Darker on hover */
   }
   

@@ -4,23 +4,36 @@ import { useNavigate } from "react-router-dom";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import axiosInstance from "../utils/axiosInstance"; // Adjust path as needed
+import ApiAuthProvider from "../utils/AuthProvider";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import "../styles/Dashboard.css";
 
 const Dashboard = () => {
   const [users, setUsers] = useState([]);
+  //const [authApiToken, setApiAuthToken] = useState(null);
+  const authApiToken = localStorage.getItem("authToken");
+
+  
+  const [matches, setMatches] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [totalItems,setTotalItems] = useState(0);
+  const perPage = 12; // Number of matches per page
+
   const [startDate, setStartDate] = useState(new Date());
   const datePickerRef = useRef(null);
   const navigate = useNavigate();
   const authToken = localStorage.getItem("token"); // Check if logged in
+  //console.log(authApiToken);
 
   useEffect(() => {
     if (!authToken) {
       navigate("/login"); // Redirect if not logged in
     }
     fetchUsers();
-  }, [authToken, navigate]);
+    fetchMatches(currentPage);
+  }, [authToken, navigate,currentPage,authApiToken]);
 
   const fetchUsers = async () => {
     try {
@@ -35,43 +48,34 @@ const Dashboard = () => {
     }
   };
 
-  const handleUserAdded = () => {
-    fetchUsers();
-  };
-
-  const handleLogout = async () => {
+  const fetchMatches = async (page) => {
     try {
-      // Get the token from localStorage
+      const queryParams = new URLSearchParams({
+        SeriesId: 0,
+        StartDate: null,
+        SeriesName: null,
+        Tab: "Live",
+        Page: page,
+        PerPage: perPage,
+      }).toString();
 
-      if (!authToken) {
-        // Handle the case where no token is found
-        //console.error("No token found in localStorage");
-        return; // Exit the function if no token is available
-      }
+      const response = await fetch(`https://api.maniifest5.com/api/Dashboard?${queryParams}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${authApiToken}`,
+        },
+      });
 
-      // Prepare the request headers with the token
-      const headers = {
-        Authorization: `Bearer ${authToken}`, // Assuming your API expects a Bearer token
-      };
-
-      // Make the logout request to the API
-      const response = await axiosInstance.post("/logout", null, { headers });
-      //console.log("Logout response:", response.data);
-      // Check for successful logout response (optional)
-      if (response.data.success) {
-        // console.log("Logout successful from server");
-      }
-
-      // Remove token from localStorage
-      localStorage.removeItem("token");
-      localStorage.removeItem("device_id");
-
-      // Redirect to the login page
-      navigate("/login");
+      if (!response.ok) throw new Error("Failed to fetch dashboard data");
+      
+      const data = await response.json();
+      console.log(data);
+      setMatches(data.response.items);
+      setTotalPages(data.response.totalPages); // Adjust this based on API response
+      setTotalItems(data.response.totalItems);
     } catch (error) {
-      // console.error("Logout failed:", error);
-      // Optionally, display an error message to the user
-      alert("Logout failed. Please try again.");
+      console.error("Error fetching matches:", error);
     }
   };
 
@@ -87,6 +91,7 @@ const Dashboard = () => {
   
   return (
     <>
+    <ApiAuthProvider />
       <div className="dashboard">
         <Header />
         <div className="all-container">
@@ -292,28 +297,29 @@ const Dashboard = () => {
             </div>
 
             <div className="list-view-section">
-              <span className="list-view-text">LIST VIEW (42)</span>
+              <span className="list-view-text">LIST VIEW ({totalItems})</span>
             </div>
             <div class="card-container">
-              <div className="card">
-                <div className="left-section">MATCH 33, MEN, DOMESTIC</div>
-                <div className="main-content-card">
+            {matches.map((match, index) => (
+                <div key={index} className="card" style={{height:"346px",width:"350px"}}>
+                <div className="left-section">MATCH 33, {match.m5MatchNo}, {match.m5GenderName.toUpperCase()}, {match.m5CompetitionName}</div>
+                <div className="main-content-card" style={{height:"100%"}}>
                   <div
                     className="header-card content"
                     style={{
                       marginBottom: "0px",
                       borderBottomWidth: "0px",
                       borderBottomStyle: "solid",
-                      bottom: "20px",
+                      height: "35%",
+                      marginTop:"0px",
                     }}
                   >
                     <div className="row">
-                      <h5>BANGLADESH PREMIER LEAGUE</h5>
+                      <h5>{match.m5SeriesName}</h5>
                       <br />
                       <p className="sub-text">
-                        26-Jan-2025, 13:30 (L) 11:30 (D)
-                        <br />
-                        Shere Bangla National Stadium
+                      {match.m5StartDate?.split("T")[0]}, {match.m5MatchStartTimeLocal} (Local)<br />
+                      {match.m5GroundName}
                       </p>
                     </div>
 
@@ -332,14 +338,15 @@ const Dashboard = () => {
                         marginTop: "0px",
                         borderTopWidth: "0px",
                         borderTopStyle: "solid",
-                        paddingTop: "25px",
+                        
                       }}
                     >
-                      FIRST CLASS
+                     {match.m5MatchFormat}
                     </div>
                   </div>
 
-                  <div className="content" style={{ marginTop: "0px" }}>
+                  <div className="content" style={{ marginTop: "0px",
+    height: "35%"}}>
                     <div
                       className="team-section"
                       style={{
@@ -351,10 +358,9 @@ const Dashboard = () => {
                     >
                       <div className="team">
                         <img
-                          src="../images/dashboard_main/B (1).png"
-                          alt="Team 1"
+                          src={match.m5TeamALogo} alt={match.m5TeamA}
                         />
-                        <p>NB W</p>
+                        <p>{match.m5TeamAShortName}</p>
                       </div>
                       <div
                         className="timer"
@@ -366,26 +372,25 @@ const Dashboard = () => {
                           marginRight: "30px",
                         }}
                       >
-                        Starting in 18h:15m:49s
+                         {/* {match.m5MatchStatus === "Live" ? "Live Now" : `Starting at ${match.m5MatchStartTimeLocal}`} */}
+                         Starting in {match.m5MatchStartTimeLocal}
                       </div>
                       <div className="team">
-                        <img
-                          src="../images/dashboard_main/H (1).png"
-                          alt="Team 2"
-                        />
-                        <p>CH W</p>
+                        <img src={match.m5TeamBLogo} alt={match.m5TeamB} />
+                        <p>{match.m5TeamBShortName}</p>
                       </div>
                     </div>
                   </div>
 
                   <div className="footer">
-                    <div className="footer-top">
+                    <div className="footer-top" style={{ height:"50%"}}>
                       <div
                         style={{
                           paddingRight: "0px",
                           paddingLeft: "0px",
                           marginRight: "-97px",
                           marginLeft: "-40px",
+  
                         }}
                       >
                         ODDS
@@ -401,6 +406,7 @@ const Dashboard = () => {
                         paddingRight: "75px",
                         marginLeft: "0px",
                         left: "0px",
+                        height:"50%"
                       }}
                     >
                       OPERATOR NAME{" "}
@@ -420,7 +426,7 @@ const Dashboard = () => {
                           borderBottomWidth: "0px",
                           borderBottomStyle: "solid",
                           marginTop: "0px",
-                          top: "-42px",
+                          top: "-52px",
                           marginBottom: "-10px",
                         }}
                       >
@@ -433,425 +439,19 @@ const Dashboard = () => {
                   </div>
                 </div>
               </div>
-              <div className="card">
-              <div className="left-section">MATCH 33, MEN, DOMESTIC</div>
-              <div className="main-content-card">
-                <div
-                  className="header-card content"
-                  style={{
-                    marginBottom: "0px",
-                    borderBottomWidth: "0px",
-                    borderBottomStyle: "solid",
-                    bottom: "20px",
-                  }}
-                >
-                  <div className="row">
-                    <h5>BANGLADESH PREMIER LEAGUE</h5>
-                    <br />
-                    <p className="sub-text">
-                      26-Jan-2025, 13:30 (L) 11:30 (D)
-                      <br />
-                      Shere Bangla National Stadium
-                    </p>
-                  </div>
-
-                  <p className="sub-text"></p>
-                  <div
-                    className="first-class"
-                    style={{
-                      marginLeft: "0px",
-                      left: "227.467px",
-                      right: "0px",
-                      borderLeftWidth: "0px",
-                      borderLeftStyle: "solid",
-                      paddingLeft: "5px",
-                      bottom: "0px",
-                      top: "0px",
-                      marginTop: "0px",
-                      borderTopWidth: "0px",
-                      borderTopStyle: "solid",
-                      paddingTop: "25px",
-                    }}
-                  >
-                    FIRST CLASS
-                  </div>
-                </div>
-
-                <div className="content" style={{ marginTop: "0px" }}>
-                  <div
-                    className="team-section"
-                    style={{
-                      borderBottomWidth: "0px",
-                      borderBottomStyle: "solid",
-                      paddingBottom: "0px",
-                      paddingTop: "0px",
-                    }}
-                  >
-                    <div className="team">
-                      <img
-                        src="../images/dashboard_main/B (1).png"
-                        alt="Team 1"
-                      />
-                      <p>NB W</p>
-                    </div>
-                    <div
-                      className="timer"
-                      style={{
-                        paddingLeft: "5px",
-                        borderLeftWidth: "0px",
-                        borderLeftStyle: "solid",
-                        marginLeft: "30px",
-                        marginRight: "30px",
-                      }}
-                    >
-                      Starting in 18h:15m:49s
-                    </div>
-                    <div className="team">
-                      <img
-                        src="../images/dashboard_main/H (1).png"
-                        alt="Team 2"
-                      />
-                      <p>CH W</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="footer">
-                  <div className="footer-top">
-                    <div
-                      style={{
-                        paddingRight: "0px",
-                        paddingLeft: "0px",
-                        marginRight: "-97px",
-                        marginLeft: "-40px",
-                      }}
-                    >
-                      ODDS
-                    </div>
-                    <div style={{ paddingLeft: "0px", paddingRight: "0px" }}>
-                      REVIEW
-                    </div>
-                  </div>
-                  <div
-                    className="footer-bottom"
-                    style={{
-                      paddingLeft: "0px",
-                      paddingRight: "75px",
-                      marginLeft: "0px",
-                      left: "0px",
-                    }}
-                  >
-                    OPERATOR NAME{" "}
-                    <img
-                      src="../images/dashboard_main/arrow_down.png"
-                      alt="Arrow Down"
-                    />
-                    <div
-                      className="ticket"
-                      style={{
-                        left: "226.983px",
-                        right: "0px",
-                        borderTopWidth: "0px",
-                        borderTopStyle: "solid",
-                        paddingTop: "23px",
-                        paddingBottom: "0px",
-                        borderBottomWidth: "0px",
-                        borderBottomStyle: "solid",
-                        marginTop: "0px",
-                        top: "-42px",
-                        marginBottom: "-10px",
-                      }}
-                    >
-                      <img
-                        src="../images/dashboard_main/Group 1829.png"
-                        alt="Group 1829"
-                      />
-                    </div>
-                  </div>
-                </div>
+            ))}
+                
+              {/* Pagination Controls */}
+              <div className="pagination">
+                <button disabled={currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)}>
+                  Previous
+                </button>
+                <span>Page {currentPage} of {totalPages}</span>
+                <button disabled={currentPage === totalPages} onClick={() => setCurrentPage(currentPage + 1)}>
+                  Next
+                </button>
               </div>
-              </div>
-
-              <div className="card">
-                <div className="left-section">MATCH 33, MEN, DOMESTIC</div>
-                <div className="main-content-card">
-                  <div
-                    className="header-card content"
-                    style={{
-                      marginBottom: "0px",
-                      borderBottomWidth: "0px",
-                      borderBottomStyle: "solid",
-                      bottom: "20px",
-                    }}
-                  >
-                    <div className="row">
-                      <h5>BANGLADESH PREMIER LEAGUE</h5>
-                      <br />
-                      <p className="sub-text">
-                        26-Jan-2025, 13:30 (L) 11:30 (D)
-                        <br />
-                        Shere Bangla National Stadium
-                      </p>
-                    </div>
-
-                    <p className="sub-text"></p>
-                    <div
-                      className="first-class"
-                      style={{
-                        marginLeft: "0px",
-                        left: "227.467px",
-                        right: "0px",
-                        borderLeftWidth: "0px",
-                        borderLeftStyle: "solid",
-                        paddingLeft: "5px",
-                        bottom: "0px",
-                        top: "0px",
-                        marginTop: "0px",
-                        borderTopWidth: "0px",
-                        borderTopStyle: "solid",
-                        paddingTop: "25px",
-                      }}
-                    >
-                      FIRST CLASS
-                    </div>
-                  </div>
-
-                  <div className="content" style={{ marginTop: "0px" }}>
-                    <div
-                      className="team-section"
-                      style={{
-                        borderBottomWidth: "0px",
-                        borderBottomStyle: "solid",
-                        paddingBottom: "0px",
-                        paddingTop: "0px",
-                      }}
-                    >
-                      <div className="team">
-                        <img
-                          src="../images/dashboard_main/B (1).png"
-                          alt="Team 1"
-                        />
-                        <p>NB W</p>
-                      </div>
-                      <div
-                        className="timer"
-                        style={{
-                          paddingLeft: "5px",
-                          borderLeftWidth: "0px",
-                          borderLeftStyle: "solid",
-                          marginLeft: "30px",
-                          marginRight: "30px",
-                        }}
-                      >
-                        Starting in 18h:15m:49s
-                      </div>
-                      <div className="team">
-                        <img
-                          src="../images/dashboard_main/H (1).png"
-                          alt="Team 2"
-                        />
-                        <p>CH W</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="footer">
-                    <div className="footer-top">
-                      <div
-                        style={{
-                          paddingRight: "0px",
-                          paddingLeft: "0px",
-                          marginRight: "-97px",
-                          marginLeft: "-40px",
-                        }}
-                      >
-                        ODDS
-                      </div>
-                      <div style={{ paddingLeft: "0px", paddingRight: "0px" }}>
-                        REVIEW
-                      </div>
-                    </div>
-                    <div
-                      className="footer-bottom"
-                      style={{
-                        paddingLeft: "0px",
-                        paddingRight: "75px",
-                        marginLeft: "0px",
-                        left: "0px",
-                      }}
-                    >
-                      OPERATOR NAME{" "}
-                      <img
-                        src="../images/dashboard_main/arrow_down.png"
-                        alt="Arrow Down"
-                      />
-                      <div
-                        className="ticket"
-                        style={{
-                          left: "226.983px",
-                          right: "0px",
-                          borderTopWidth: "0px",
-                          borderTopStyle: "solid",
-                          paddingTop: "23px",
-                          paddingBottom: "0px",
-                          borderBottomWidth: "0px",
-                          borderBottomStyle: "solid",
-                          marginTop: "0px",
-                          top: "-42px",
-                          marginBottom: "-10px",
-                        }}
-                      >
-                        <img
-                          src="../images/dashboard_main/Group 1829.png"
-                          alt="Group 1829"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-                <div className="card">
-                <div className="left-section">MATCH 33, MEN, DOMESTIC</div>
-                <div className="main-content-card">
-                  <div
-                    className="header-card content"
-                    style={{
-                      marginBottom: "0px",
-                      borderBottomWidth: "0px",
-                      borderBottomStyle: "solid",
-                      bottom: "20px",
-                    }}
-                  >
-                    <div className="row">
-                      <h5>BANGLADESH PREMIER LEAGUE</h5>
-                      <br />
-                      <p className="sub-text">
-                        26-Jan-2025, 13:30 (L) 11:30 (D)
-                        <br />
-                        Shere Bangla National Stadium
-                      </p>
-                    </div>
-
-                    <p className="sub-text"></p>
-                    <div
-                      className="first-class"
-                      style={{
-                        marginLeft: "0px",
-                        left: "227.467px",
-                        right: "0px",
-                        borderLeftWidth: "0px",
-                        borderLeftStyle: "solid",
-                        paddingLeft: "5px",
-                        bottom: "0px",
-                        top: "0px",
-                        marginTop: "0px",
-                        borderTopWidth: "0px",
-                        borderTopStyle: "solid",
-                        paddingTop: "25px",
-                      }}
-                    >
-                      FIRST CLASS
-                    </div>
-                  </div>
-
-                  <div className="content" style={{ marginTop: "0px" }}>
-                    <div
-                      className="team-section"
-                      style={{
-                        borderBottomWidth: "0px",
-                        borderBottomStyle: "solid",
-                        paddingBottom: "0px",
-                        paddingTop: "0px",
-                      }}
-                    >
-                      <div className="team">
-                        <img
-                          src="../images/dashboard_main/B (1).png"
-                          alt="Team 1"
-                        />
-                        <p>NB W</p>
-                      </div>
-                      <div
-                        className="timer"
-                        style={{
-                          paddingLeft: "5px",
-                          borderLeftWidth: "0px",
-                          borderLeftStyle: "solid",
-                          marginLeft: "30px",
-                          marginRight: "30px",
-                        }}
-                      >
-                        Starting in 18h:15m:49s
-                      </div>
-                      <div className="team">
-                        <img
-                          src="../images/dashboard_main/H (1).png"
-                          alt="Team 2"
-                        />
-                        <p>CH W</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="footer">
-                    <div className="footer-top">
-                      <div
-                        style={{
-                          paddingRight: "0px",
-                          paddingLeft: "0px",
-                          marginRight: "-97px",
-                          marginLeft: "-40px",
-                        }}
-                      >
-                        ODDS
-                      </div>
-                      <div style={{ paddingLeft: "0px", paddingRight: "0px" }}>
-                        REVIEW
-                      </div>
-                    </div>
-                    <div
-                      className="footer-bottom"
-                      style={{
-                        paddingLeft: "0px",
-                        paddingRight: "75px",
-                        marginLeft: "0px",
-                        left: "0px",
-                      }}
-                    >
-                      OPERATOR NAME{" "}
-                      <img
-                        src="../images/dashboard_main/arrow_down.png"
-                        alt="Arrow Down"
-                      />
-                      <div
-                        className="ticket"
-                        style={{
-                          left: "226.983px",
-                          right: "0px",
-                          borderTopWidth: "0px",
-                          borderTopStyle: "solid",
-                          paddingTop: "23px",
-                          paddingBottom: "0px",
-                          borderBottomWidth: "0px",
-                          borderBottomStyle: "solid",
-                          marginTop: "0px",
-                          top: "-42px",
-                          marginBottom: "-10px",
-                        }}
-                      >
-                        <img
-                          src="../images/dashboard_main/Group 1829.png"
-                          alt="Group 1829"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>         
             </div>
-
-            
 
           </div>
         </div>
