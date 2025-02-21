@@ -6,15 +6,18 @@ import profileImg from "../images/profile.png";
 const Header = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const navigate = useNavigate();
+  const userName = localStorage.getItem("user_name");
 
   const handleLogout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('user_name');
     window.location.href = '/login';
   };
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
+  
 
   return (
     <div className="header">
@@ -33,7 +36,7 @@ const Header = () => {
         />
         {dropdownOpen && (
           <div className="dropdown-menu">
-            <button onClick={() => navigate("/profile")}>Profile</button>
+            <button onClick={() => navigate("/profile")}>{userName}</button>
             <button onClick={handleLogout}>Logout</button>
           </div>
         )}

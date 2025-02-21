@@ -115,7 +115,7 @@ const Dashboard = () => {
           <div className="body-container">
             <div className="box">
               <div className="heading-box">
-                <span className="heading-text">Dashboard</span>
+                <span className="heading-text" style={{ marginLeft: "463px" }}>Dashboard</span>
                 <div className="toggle-container">
                   <div className="toggle" style={{ left: "150px" }}></div>
                   <span className="all-reports">ALL REPORTS</span>
@@ -263,7 +263,7 @@ const Dashboard = () => {
                   </div>
                 </div>
 
-                <div className="field-container" style={{ width: "10%" }}>
+                <div className="field-container" style={{ width: "14%" }}>
                   <span className="field-name" style={{ marginLeft: "-66px" }}>
                     DATE
                   </span>
@@ -444,7 +444,9 @@ const Dashboard = () => {
                           marginLeft: "0px",
                           left: "0px",
                           height: "50%",
+                          cursor: "pointer",
                         }}
+                        onClick={() => navigate("/assign_match")}
                       >
                         OPERATOR NAME{" "}
                         <img
