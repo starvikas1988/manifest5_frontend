@@ -1,35 +1,111 @@
 .sidebar {
-    width: 220px;
-    background-color: #00474d;
-    color: white;
-    padding: 15px;
-  }
-  
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  /* Remove default link styles */
-  .sidebar ul li a {
-    color: white; /* White text color */
-    text-decoration: none; /* Remove underline */
-    display: block; /* Make the entire area clickable */
-    padding: 8px;
-  }
-  
- /* Add hover effect */
-  .sidebar ul li a:hover {
-    background-color: #006d75;
-    border-radius: 5px;
-  }
-  
-  .submenu {
-    margin-left: 15px;
-    display: none;
-  }
-  
-  .submenu.open {
-    display: block;
-  }
-  
+  width: 220px;
+  background-color: #00474d;
+  /* Sidebar Background */
+  color: white;
+  padding: 15px;
+}
+
+/* Sidebar menu styles */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  position: relative;
+  /* Needed for submenu positioning */
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sidebar menu item hover effect */
+.sidebar ul li:hover {
+  background-color: #006d75;
+}
+
+/* Remove default link styles */
+.sidebar ul li a {
+  color: white;
+  /* White text color */
+  text-decoration: none;
+  /* Remove underline */
+  display: block;
+  /* Make the entire area clickable */
+  width: 100%;
+  padding: 8px;
+}
+
+/* Add hover effect */
+.sidebar ul li a:hover {
+  background-color: #006d75;
+  border-radius: 5px;
+}
+
+/* ADMIN MENU */
+.menu-item {
+  position: relative;
+  width: 100%;
+  /* Take full width */
+}
+
+/* Submenu styles */
+.submenu {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 5px;
+  display: none;
+  /* Hidden by default */
+  background-color: #055A74;
+  /* Darker shade for submenu */
+  border-radius: 5px;
+  padding: 5px 0;
+  overflow: hidden;
+  /* Prevents unwanted spacing */
+}
+
+/* Show submenu when 'open' class is added */
+.submenu.open {
+  display: block;
+}
+
+/* Submenu items */
+.submenu li {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+/* Submenu links */
+.submenu li a {
+  color: #C1E7F2;
+  font-size: 14px;
+  display: block;
+  padding: 6px 10px;
+}
+
+/* Submenu hover effect */
+.submenu li a:hover {
+  background-color: #0A3A50;
+  color: white;
+  border-radius: 3px;
+}
+
+/* Dashboard and Other Menu Items */
+.menu-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+/* Proper spacing for icons */
+.sidebar ul li i {
+  font-size: 18px;
+}

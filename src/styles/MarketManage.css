@@ -1,0 +1,308 @@
+.market-manage-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: #38B2AC; /* Teal background */
+}
+.market-management-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+/* Category & Market Selection */
+.category-market-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.category-dropdown,
+.market-dropdown {
+    display: flex;
+    flex-direction: column;
+}
+
+.category-dropdown input,
+.market-dropdown input {
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    width: 200px;
+}
+
+/* Market Grid */
+.market-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.market-card {
+    background-color: #0c6170;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Add New Market */
+.add-new-market {
+    margin-bottom: 20px;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+}
+
+.input-container input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+}
+
+.save-btn {
+    margin-left: 10px;
+    cursor: pointer;
+    width: 40px;
+}
+
+/* Added Markets */
+.added-markets {
+    margin-bottom: 20px;
+}
+
+.added-market-list {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.added-market {
+    background-color: #0c6170;
+    padding: 8px 12px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.delete-btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.action-btn {
+    cursor: pointer;
+    width: 80px;
+}
+
+.search-bar {
+    margin-bottom: 15px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.market-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 800px;
+}
+
+.market-item {
+    background-color: #0c6170;
+    color: white;
+    padding: 12px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.market-item:hover {
+    background-color: #0a4c58;
+}
+
+
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Adds spacing between the input and icons */
+}
+
+.search-container {
+    flex: 1; /* Takes up available space */
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px 0 0 20px;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+.search-container input {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background: transparent;
+}
+
+.search-dropdown {
+    width: 55px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #004a5e; /* Adjust color */
+    border-radius: 0 20px 20px 0; 
+    padding: 5px;
+}
+
+.search-dropdown img {
+    width: 20px; /* Adjust icon size */
+    height: auto;
+    cursor: pointer;
+}
+
+
+
+
+.category-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Adjust space between elements */
+}
+
+.category-container_search {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid #fff; 
+    gap: 5px;
+}
+
+.category-title {
+    display: flex;
+    justify-content: space-between; /* Moves CATEGORY (16) left and MARKET right */
+    align-items: center;
+    width: 100%; /* Ensures full width for spacing */
+}
+
+.category-left {
+    font-size: 16px;
+    font-weight: bold;
+    color: #00787A;
+}
+
+.category-left span {
+    margin-left: 5px;
+    font-weight: normal;
+}
+
+.market-text {
+    font-weight: bold;
+    font-size: 14px;
+    color: #00787A;
+}
+
+
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    margin: 0 15px;
+    gap: 10px;
+}
+
+.search-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background-color: #B0CDB3;
+    border-radius: 20px;
+    padding: 5px 10px;
+    border: none;
+}
+
+.search-container input {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background: transparent;
+}
+
+.search-dropdown {
+    width: 55px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #004A5E;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.search-dropdown img {
+    width: 20px;
+    height: auto;
+    cursor: pointer;
+}
+
+.number-box {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    background-color: #004A5E;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.number-box img {
+    width: 15px;
+    height: 15px;
+    margin-top: 3px;
+}
+.market-container {
+    background-color: white; /* Set white background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+

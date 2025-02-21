@@ -41,15 +41,16 @@ body {
   height: 100vh; 
 }
 
-.dashboard-container {
+.all-container {
   display: flex;
   height: 100vh;
+  background-color: #44cec6;
 }
 
 .main-content {
   flex: 1;
   padding: 20px;
-  background-color: #d3f3f3;
+  background-color: #44cec6;
 }
 
 

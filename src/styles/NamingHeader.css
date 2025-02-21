@@ -1,0 +1,307 @@
+.namingHeader{
+    background-color: #FFFFFF;
+    /* border: 1px solid black; */
+   
+    margin-top: 15px;
+    /* position: relative; */
+    display:block;
+    width: 95%;
+    margin-right: 20%;
+    height: fit-content;
+    display: flex;
+   border-radius: 10px;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   /* padding: 2px; */
+}
+
+.domesticWomenName{
+    background-color: #9F41A4;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding: 3px 12px 0px 13px ;
+    font-size: 10px;
+    color: white;
+    text-align: center;
+    border-radius: 10px 0px 0px 10px;
+}
+.LeaugeName-container{
+
+ width: 100%;
+ height: 100%;
+ display: flex;
+ flex-direction: column;
+}
+.leaugeName{
+    background-color: #00546C;
+    display: flex;
+    height: 53%;
+    flex-direction: row;
+    position: relative;
+}
+.leaugeTime{
+    align-items: center;
+}
+.team-Name{
+    background-color: #FFFFFF;
+    height: 47%;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+}
+.team{
+    width: 100%;
+    justify-content: space-between;
+    /* justify-items: left; */
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.team1{
+    display: flex;
+    margin: 6px 2px 5px 10px ;
+    /* left: 1%; */
+    width: auto;
+    align-items: center;
+    background-color: #00546C;
+    border: 1px solid black;
+    border-radius: 100px;
+    padding: 2px 2px 0px 0px;
+    
+}
+.NB-w{
+    
+    color: #FFFFFF;
+     font-size: 14px;
+     font-weight: bold;
+     padding-left: 10px;
+     padding-right: 10px;
+     align-items: center;
+     width: max-content;
+}
+.b img{
+ width: 29px;
+ height: 29px;
+ align-items: center;
+}
+.vs{
+    display: flex; 
+    top: 50%;
+    align-items: center;
+}
+.team2{
+    display: flex;
+    margin: 6px 10px 5px 0px ;
+    width: auto;
+    align-items: center;
+    background-color: #00546C;
+    border: 1px solid black;
+    border-radius: 100px;
+    padding: 2px 2px 0px 0px;
+}
+.CH-w{
+    /* border: 1px solid black; */
+   
+    color: #FFFFFF;
+     font-size: 14px;
+     font-weight: bold;
+     padding-left: 10px;
+     padding-right: 10px;
+     align-items: center;
+     width: max-content;
+}
+.h img{
+    /* border: 1px solid black; */
+    width: 29px;
+ height: 29px;
+ align-items: center;
+
+}
+
+.time{
+    font-size: 10px;
+    font-weight:bolder;
+    width: 100%;
+    display: flex;
+   justify-content: flex-end;
+   padding-right: 6%;
+   align-items: center;
+   gap: 5PX;
+   color: #00546C;
+}
+.TIME-NAME{
+
+}
+.TIME-NUMBER{
+ background-color: #D9D9D9;
+ padding: 3px;
+ border-radius: 3px;
+}
+.leaugeTime{
+    /* border: 1px solid black; */
+    width: 80%;
+    justify-content: end;
+    margin-right: 50px;
+    margin-top: 5px;
+    display: flex;
+}
+.flag-container{
+    width: 5%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: auto;
+    /* border: 1px solid black; */
+    border-radius: 0px 10px 10px 0px;
+   
+}
+.leaugeName-header{
+    width: 100%;
+    padding-left: 10px;
+}
+.flagimg{
+    width: 100%;
+    margin-bottom:auto ;
+    border-radius: 0px 10px 0px 0px;
+   
+    width: 100%;
+    height: 53%;
+    text-align: center;
+    /* border: 1px solid black; */
+    background-color: #00674C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.flagimg img{
+    top: 50px;
+}
+.t20{
+    width: 100%;
+    height: 66%;
+    margin-top:auto ;
+    color: #FFFFFF;
+    justify-content: center;
+    /* border: 1px solid black; */
+    text-align: center;
+    background-color:#9F41A4 ;
+    
+    display: flex;
+    border-radius: 0px 0px 10px 0px;
+    align-items: center;
+    justify-content: center;
+}
+.bpl{
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 0px;
+    
+    
+}
+.stadium{
+    display: flex;
+    flex-direction: row;
+    font-size: 12px;
+    color: white;
+    position: relative;
+    margin-bottom: 5px;
+}
+.stadium-name{
+/* border: 1px solid black; */
+width: 100%;
+font-size: 10px;
+}
+.stadium .playing-date{
+    /* border: 1px solid black; */
+    width: 100%;
+    padding-left: 90px;
+    justify-content: end;
+}
+.time{
+    font-size: 10px;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: end; */
+    /* color: white; */
+}
+.time1{
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+.market{
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
+    font-weight: bolder;
+    gap: 5px;
+    color: white;
+    padding: 1% ;
+    width: 15%;
+}
+.market-name{
+    background-color: #00546C;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+}
+.total{
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+    width: 100%;
+    text-align: center;
+
+}
+.total-name{
+    display: flex;
+    flex-direction: row;
+    background-color: #00546C;
+   border-radius:5px 0px 0px 5px ;
+   padding: 5px 15px 5px 16px;
+   width: 100%;
+}
+.total-number{
+    background-color: #0C7C73;
+    padding: 5px 10px 5px 10px;
+    border-radius: 0px 5px 5px 0px;
+    width: 100%;
+}
+.selected{
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+    width: 100%;
+    text-align: center;
+}
+.selected-name{
+    background-color: #00546C;
+    color: white;
+    border-radius:5px 0px 0px 5px ;
+    padding: 5px 5px 5px 5px;
+    width: 100%;
+}
+.selected-number{
+ background-color: #0C7C73;
+ padding: 5px 10px 5px 10px;
+    border-radius: 0px 5px 5px 0px;
+    width: 100%;
+}
+.submit-verify{
+    background-color: #308A00;
+    width: 100%;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    color: #FFFFFF;
+    display: block;
+    border: none;
+    
+}

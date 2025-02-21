@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import '../styles/Header.css';
+import profileImg from "../images/profile.png";
 
 const Header = () => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const navigate = useNavigate();
+
   const handleLogout = () => {
     localStorage.removeItem('token');
     window.location.href = '/login';
+  };
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
   };
 
   return (
@@ -12,9 +21,23 @@ const Header = () => {
       <div className="logo">
         <img src="images/manifest.png" alt="Logo" />
       </div>
-      <button onClick={handleLogout} className="logout-button">
+      {/* <button onClick={handleLogout} className="logout-button">
         Logout
-      </button>
+      </button> */}
+      <div className="profile-container">
+        <img
+          src={profileImg}
+          alt="Profile"
+          className="profile-image"
+          onClick={toggleDropdown}
+        />
+        {dropdownOpen && (
+          <div className="dropdown-menu">
+            <button onClick={() => navigate("/profile")}>Profile</button>
+            <button onClick={handleLogout}>Logout</button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

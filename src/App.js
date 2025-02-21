@@ -1,15 +1,26 @@
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 import LoginPage from './components/LoginPage';
 import Dashboard from './components/Dashboard';
 import ProtectedRoute from "./components/ProtectedRoute";
 import PublicRoute from './components/PublicRoute';
+import OperatorPublicRoute from './components/OperatorPublicRoute';
 import NotFoundPage from './components/NotFoundPage';
 import CreateUser from './components/CreateUser';
 import ManageUser from './components/ManageUser';
 import MatchAssignment from './components/MatchAssignment';
-
+import CategoryManage from './components/CategoryManage';
+import TicketDashboard from './components/TicketDashboard';
+import OperatorLogin from './components/OperatorLogin';
+import OperatorDashboard from './components/OperatorDashboard';
+import OperatorProtectedRoute from './components/OperatorProtectedRoute';
+import MarketManage from './components/MarketManage';
+import AdminReportsDashboard from './components/AdminReportsDashboard';
+import Crm from './components/Crm';
 function App() {
   return (
     <Router>
@@ -21,6 +32,22 @@ function App() {
             <PublicRoute>
               <LoginPage />
             </PublicRoute>
+          }
+        />
+          <Route
+          path="/login/operator"
+          element={
+            <OperatorPublicRoute>
+              <OperatorLogin />
+            </OperatorPublicRoute>
+          }
+        />
+        <Route
+          path="/operator_dashboard"
+          element={
+            <OperatorProtectedRoute>
+              <OperatorDashboard />
+            </OperatorProtectedRoute>
           }
         />
         <Route
@@ -39,11 +66,35 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/crm"
+          element={
+            <ProtectedRoute>
+              <Crm />
+            </ProtectedRoute>
+          }
+        />
+         <Route
+          path="/admin_reports_dashboard"
+          element={
+            <ProtectedRoute>
+              <AdminReportsDashboard />
+            </ProtectedRoute>
+          }
+        />
          <Route
           path="/create-user"
           element={
             <ProtectedRoute>
               <CreateUser />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/manage-market"
+          element={
+            <ProtectedRoute>
+              <MarketManage />
             </ProtectedRoute>
           }
         />
@@ -60,6 +111,22 @@ function App() {
           element={
             <ProtectedRoute>
               <MatchAssignment />
+            </ProtectedRoute>
+          }
+        />
+          <Route
+          path="/category_manage"
+          element={
+            <ProtectedRoute>
+              <CategoryManage />
+            </ProtectedRoute>
+          }
+        />
+         <Route
+          path="/manage-ticket"
+          element={
+            <ProtectedRoute>
+              <TicketDashboard />
             </ProtectedRoute>
           }
         />
