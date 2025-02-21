@@ -48,6 +48,7 @@ function LoginPage() {
         console.log('Response:', response.data);
         if (response.data) {
             localStorage.setItem('token', response.data.token);
+            localStorage.setItem('user_name', response.data.user_name);
             localStorage.setItem("device_id", response.data.device_id);
             console.log("Login successful, Device ID:", response.data.device_id);
           setError(null);

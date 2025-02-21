@@ -60,14 +60,15 @@ const Sidebar = () => {
           </ul>
         </li>
        
-        <li>
-        <i><FaUsersCog size={18} /><Link to="/assign_match">Assign Match</Link></i>
+        {/* <li>
+        <i><FaUsersCog size={18} /></i>
+        <Link to="/assign_match">Assign Match</Link>
         </li>
         
         <li>
-        <i><FaUsersCog size={18} /><Link to="/manage-ticket">Tickets</Link></i>
-        
-        </li>
+        <i><FaUsersCog size={18} /></i>
+        <Link to="/manage-ticket">Tickets</Link>
+        </li> */}
       
       </ul>
     </div>
