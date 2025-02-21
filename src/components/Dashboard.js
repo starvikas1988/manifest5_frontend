@@ -326,7 +326,7 @@ const Dashboard = () => {
             </div>
 
             <div className="list-view-section">
-              <span className="list-view-text">LIST VIEW ({filteredMatches.length})</span>
+              <span className="list-view-textD">CARD VIEW ({filteredMatches.length})</span>
             </div>
             <div class="card-container">
               {filteredMatches.map((match, index) => (
@@ -470,6 +470,9 @@ const Dashboard = () => {
                           <img
                             src="../images/dashboard_main/Group 1829.png"
                             alt="Group 1829"
+                            style={{
+                              marginTop: "10px", // Adjust value as needed to move the image down
+                            }}
                           />
                         </div>
                       </div>
