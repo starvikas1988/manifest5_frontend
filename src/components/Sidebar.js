@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
+import { FaUsersCog, FaClipboardCheck } from "react-icons/fa";
+
 import '../styles/Sidebar.css';
 
 const Sidebar = () => {
@@ -16,6 +18,10 @@ const Sidebar = () => {
           </ul>
         </li>
         <li><i>📊</i><Link to="/dashboard">Dashboard</Link></li>
+        <li>
+        <i><FaUsersCog size={18} /></i>
+        <Link to="/assign_match">Assign Match</Link>
+      </li>
         <li><i>⚙️</i> ODDS</li>
         <li><i>🔍</i> Review</li>
         <li><i>📋</i> CRM</li>

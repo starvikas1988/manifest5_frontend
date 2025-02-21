@@ -8,6 +8,7 @@ import PublicRoute from './components/PublicRoute';
 import NotFoundPage from './components/NotFoundPage';
 import CreateUser from './components/CreateUser';
 import ManageUser from './components/ManageUser';
+import MatchAssignment from './components/MatchAssignment';
 
 function App() {
   return (
@@ -51,6 +52,14 @@ function App() {
           element={
             <ProtectedRoute>
               <ManageUser />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/assign_match"
+          element={
+            <ProtectedRoute>
+              <MatchAssignment />
             </ProtectedRoute>
           }
         />

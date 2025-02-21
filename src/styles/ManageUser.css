@@ -14,16 +14,16 @@
   }
   
   /* Header Styles */
-  .header {
+  /* .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     background-color: #005f6b;
     color: white;
-  }
+  } */
   
-  .header .logo img {
+  /* .header .logo img {
     height: 40px;
   }
   
@@ -83,7 +83,7 @@
   .sidebar .submenu li {
     padding: 5px 0;
     font-size: 14px;
-  }
+  } */
   
   /* Main Content Styles */
   .main-content {
