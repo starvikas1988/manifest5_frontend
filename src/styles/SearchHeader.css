@@ -1,0 +1,151 @@
+.seachHeader{
+    background-color: #FFFFFF;
+    border: 1px solid black;
+    margin-left: 33px;
+    margin-right: 37px;
+    margin-top: 50%;
+    /* position: relative; */
+    display:flex;
+    width: 1100px;
+    height: 96px;
+    display: flex;
+    border-radius: 10px;
+}
+.box-search {
+    width: 96%;
+    min-height: 90.5px; /* Ensures a minimum height */
+    /* background-color: white; */
+    border-radius: 5px;
+    margin-bottom: 20px; /* Space between boxes */
+    display: flex; /* Enables flexible content layout */
+    flex-direction: column; /* Stacks content vertically */
+  }
+ 
+  .content {
+    display: flex;
+    background-color: white;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 10px 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .field-container {
+  
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+  
+  /* Field Name */
+  .field-name-input {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0C7C73;
+    display: block; /* Ensures text does not interfere with the image */
+    text-align: center;
+    
+  }
+  
+  /* Search Bar */
+  .search-bar {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 30px;
+  }
+  
+  .search-bar input {
+    width: 100%;
+    padding: 8px 30px 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #ADCAB3; /* Default background color */
+    font-size: 12px;
+  }
+  
+  .search-bar img {
+    position: absolute;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+  
+  /* Custom Background Colors for Search Bars */
+  .series-search input {
+    background-color: #ADCAB3; /* Change this color as needed */
+  }
+  
+  .match-search input {
+    background-color: #ADCAB3; /* Change this color as needed */
+  }
+  
+  /* Date Picker */
+  .date-picker {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 30px;
+  }
+  
+  .date-picker input {
+    width: 100%;
+    height: 30px;
+    padding: 5px 30px 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #ADCAB3;
+    font-size: 12px;
+  }
+  
+  .date-picker img {
+    position: absolute;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+  
+  /* Buttons Container */
+  .buttons-container {
+    width: 20%;
+  }
+  
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px; /* Space between buttons */
+  }
+  
+  .buttons button {
+    background-color: #00546C;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Space between icon and text */
+  }
+  
+  .buttons button img {
+    width: 20px;
+    height: 20px;
+  }
+  .field-container img {
+    width: 30px; /* Set fixed width */
+    height: 30px; /* Set fixed height */
+    object-fit: contain; /* Ensure images maintain aspect ratio */
+  }
+  
+  
