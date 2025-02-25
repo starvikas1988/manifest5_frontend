@@ -60,11 +60,13 @@ function LoginPage() {
           console.log('Response:', response.data);
           setError(response.data.message);
         }
+        console.log("okk");
       } else {
         setError('Please enter email and password');
       }
     } catch (error) {
       setError(error.response.data.message || 'Something went wrong!');
+      console.log("not okk");
        // setError('Something went wrong');
     }
     // console.log('Email:', email);

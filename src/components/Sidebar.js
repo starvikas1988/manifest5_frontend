@@ -60,7 +60,7 @@ const Sidebar = () => {
           </ul>
         </li>
        
-        {/* <li>
+        <li>
         <i><FaUsersCog size={18} /></i>
         <Link to="/assign_match">Assign Match</Link>
         </li>
@@ -68,7 +68,7 @@ const Sidebar = () => {
         <li>
         <i><FaUsersCog size={18} /></i>
         <Link to="/manage-ticket">Tickets</Link>
-        </li> */}
+        </li>
       
       </ul>
     </div>

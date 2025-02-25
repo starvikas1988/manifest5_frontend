@@ -1,12 +1,12 @@
 .card-container-main{
     display: flex;
     flex-wrap: wrap;
-    gap: 2%;
+    gap: 1%;
   }
 
 .card-container {
-    width: 25%;
-    height: 100%;
+   max-width: 360px;
+    height: 200px;
     /* background-color: black; */
     display: flex;
     flex:  1 1 calc(23% - 0px);
@@ -18,31 +18,37 @@
     border-radius: 10%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+.match-number-div{
+    width: 40px;
+    height: 200px;
+}
 
 .match-number {
-    width: 15%;
+    width: 100%;
+    height: auto;
     font-size: 100%;
     font-weight: bolder;
-    height: auto;
+    height: 200px;
     background-color: #9F41A4;
     writing-mode: vertical-rl;
     align-content: center;
     text-align: center;
     transform: rotate(180deg);
-    padding: 0%;
+    padding: 2%;
     border: 1px solid black;
     border-radius: 0px 10px 10px 0px;
     border: thin;
 }
 .match-name{
-width: 100%;
-height: 100%;
+width: 322px;
+height: 200px;
 
 }
 .bpl-className{
     background-color: #00546C;
     display: flex;
     width: 100%;
+    height: 30%;
     border: 1px solid black;
     border-radius: 0px 10px 0px 0px;
     border: thin;
@@ -60,16 +66,17 @@ height: 100%;
    
 }
 .team-name-time{
+    
     background-color: white;
     color: #00546C;
     display: flex;
     padding-left: 3%;
     padding-right: 3%;
     gap: 10%;
-    
+    height: 45%;
 }
 .odds-review-operator{
-   
+    height: 25%;
     display: flex;
     width: 100%;
 }
@@ -82,15 +89,20 @@ height: 100%;
 .menubar{
     background-color: #9F41A4;
     width: 20%;
+    height: auto;
     border: 1px solid black;
     border-radius: 0px 0px 10px 0px;
     border: thin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .menubar-img{
-   display: flex;
-   justify-content: center;
-   padding-top:40%;
-   padding-bottom: 20%;
+width: 70%;
+display: flex;
+justify-content: center;
+   /* padding-top:40%;
+   padding-bottom: 20%; */
 
 }
 .menubar-img img{
@@ -109,9 +121,8 @@ height: 100%;
 }
 .bpl-name{
     padding-top: 1%;
-    padding-bottom: 1%;
 width: 100%;
-font-size: 110%;
+font-size: 140%;
 /* display: block; */
 font-weight:bolder;
 
@@ -119,14 +130,12 @@ font-weight:bolder;
 }
 .date-time{
     font-size: 100%;
-    padding-top: 1%;
     padding-bottom: 1%;
     text-align: start;
   
 }
 .stadium-name{
     font-size: 100%;
-    padding-top: 1%;
     padding-bottom: 1%;
 }
 .firstclass-name{
@@ -141,7 +150,7 @@ font-weight:bolder;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 120%;
+    font-size: 100%;
     font-weight: bolder;
 }
 .matchTime{
@@ -156,7 +165,7 @@ font-weight:bolder;
     padding-right: 3%;
     border-radius: 10%;
     margin-top: 10%;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
 }
 .team2Name-img{
     display: flex;

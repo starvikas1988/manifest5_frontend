@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
+import { useLocation } from "react-router-dom";
 import axiosInstance from "../utils/axiosInstance";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
@@ -12,6 +13,9 @@ const MatchAssignment = () => {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [assignedReviews, setAssignedReviews] = useState([]);
   const authToken = localStorage.getItem("token");
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const matchId = searchParams.get("matchId");
 
   // Fetch operators and categories from API
   useEffect(() => {
@@ -84,6 +88,7 @@ const MatchAssignment = () => {
     const assignments = selectedCategories.map(category => ({
       operator_id: selectedOperator.value,
       category_id: category.value,
+      match_id: matchId,
     }));
   
     try {
