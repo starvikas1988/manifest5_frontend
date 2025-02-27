@@ -205,8 +205,9 @@ const OperatorDashboard = () => {
   };
 
   const fetchAssignmentsCount = async () => {
+    
     try {
-      const response = await axiosInstance.get("/getAssignmentsCount", {
+      const response = await axiosInstance.get(`/getAssignmentsCount/${operator_id}`, {
         headers: { Authorization: `Bearer ${authToken}` },
       });
       console.log("Assignments API Response:", response.data); // Debugging

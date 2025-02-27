@@ -243,6 +243,8 @@ font-size: 10px;
     color: white;
     padding: 1% ;
     width: 15%;
+    justify-content: center;
+    align-items: center;
 }
 .market-name{
     background-color: #00546C;
