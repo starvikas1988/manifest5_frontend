@@ -16,7 +16,7 @@ const MatchAssignment = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   //const matchId = searchParams.get("matchId");
-  const matchId = 208;
+  const matchId = 208; // make it dynamic
 
   // Fetch operators and categories from API
   useEffect(() => {
