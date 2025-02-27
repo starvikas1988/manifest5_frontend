@@ -1,28 +1,29 @@
-import React from "react";
-import { useState, useEffect, useRef } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import React from 'react';
+import { useState, useEffect,useRef } from "react";
+import { useNavigate,useLocation } from 'react-router-dom';
+
 
 import DatePicker from "react-datepicker";
-import SearchIcon from "../images/dashboard_main/Group 2555.png";
-import GroupIcon from "../images/dashboard_main/Group 1830.png";
-import CardIcon from "../images/dashboard_main/Group 1821.png";
-import Ticket from "../images/dashboard_main/Group 1829.png";
-import DateIcon from "../images/dashboard_main/Frame 1966.png";
+import SearchIcon from "../../images/dashboard_main/Group 2555.png";
+import GroupIcon from "../../images/dashboard_main/Group 1830.png";
+import CardIcon from "../../images/dashboard_main/Group 1821.png";
+import Ticket from "../../images/dashboard_main/Group 1829.png";
+import DateIcon from "../../images/dashboard_main/Frame 1966.png";
 
-import img3 from "../images/dashboard_main/Group 1823.png";
-import img4 from "../images/dashboard_main/arrow_down.png";
+import img3 from "../../images/dashboard_main/Group 1823.png";
+import img4 from "../../images/dashboard_main/arrow_down.png";
 
 import "react-datepicker/dist/react-datepicker.css";
-import axiosInstance from "../utils/axiosInstance"; // Adjust path as needed
-import ApiAuthProvider from "../utils/AuthProvider";
-import Header from "./Header";
-import Sidebar from "./Sidebar";
-import "../styles/Dashboard.css";
-import "../styles/SearchHeader.css";
-import "../styles/Card.css";
 
+import axiosInstance from "../../utils/axiosInstance"; // Adjust path as needed
+import ApiAuthProvider from "../../utils/AuthProvider";
+import Header from './Header';
+import Sidebar from './Sidebar';
+import UserForm from './UserForm';
+import UserTable from './UserTable';
+import '../../styles/operator/Dashboard.css';
 
-const Dashboard = () => {
+const OperatorDashboard = () => {
   const [users, setUsers] = useState([]);
   //const [authApiToken, setApiAuthToken] = useState(null);
   const authApiToken = localStorage.getItem("authToken");
@@ -65,6 +66,8 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const authToken = localStorage.getItem("token"); // Check if logged in
   //console.log(authApiToken);
+  const operator_id = localStorage.getItem("operator_id");
+  //console.log(operator_id);
 
   useEffect(() => {
     if (!authToken) {
@@ -95,11 +98,15 @@ const Dashboard = () => {
   };
 
   const fetchAssignedMatchIds = async () => {
+    if(!operator_id) {
+      console.error("Operator ID not found");
+      return;
+    }
     try {
-      const response = await axiosInstance.get("/getAssignmentedMatchIds", {
+      const response = await axiosInstance.get(`/operator/${operator_id}/assigned-matches`, {
         headers: { Authorization: `Bearer ${authToken}` },
       });
-      // console.log("Assigned Matches API Response:", response.data); // Debugging
+       console.log("Assigned Matches API Response:", response.data); // Debugging
 
       setMatchIds(response.data.assigned_match_ids);
       setAssignedMatchesIds(response.data.assigned_match_ids);
@@ -113,8 +120,13 @@ const Dashboard = () => {
 
 
   const fetchAssignedOperatorMatchIds = async () => {
+    if(!operator_id) {
+      console.error("Operator ID not found");
+      return;
+    }
+
     try {
-      const response = await fetch("http://localhost:8000/api/assignments", {
+      const response = await axiosInstance.get(`/assignments/${operator_id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -314,10 +326,8 @@ const Dashboard = () => {
         match.m5CompetitionId?.toString() === selectedCompetition.toString()) &&
       (!match.selectedDate || match.matchDate === match.selectedDate) // Use match.selectedDate for comparison
   );
-
-
-  return (
-    <>
+    return (
+      <>
       <ApiAuthProvider />
       <div className="dashboard">
         <Header />
@@ -455,7 +465,7 @@ const Dashboard = () => {
                 {/* <!-- Series Search Bar --> */}
                 <div
                   className="field-container"
-                  style={{ width: "30%", paddingLeft: "0px",alignItems: "start" }}
+                  style={{ width: "30%", paddingLeft: "0px" }}
                 >
                   <span className="field-name-input">SERIES</span>
                   <div
@@ -486,7 +496,7 @@ const Dashboard = () => {
                 </div>
 
                 {/* <!-- Match Format Search Bar --> */}
-                <div className="field-container" style={{ width: "25%",alignItems: "start" }}>
+                <div className="field-container" style={{ width: "25%" }}>
                   <span className="field-name-input">MATCH FORMAT</span>
                   <div
                     className="search-bar match-search"
@@ -515,7 +525,7 @@ const Dashboard = () => {
                 </div>
 
                 {/* <!-- Date Picker --> */}
-                <div className="field-container" style={{ width: "16%",alignItems: "start" }}>
+                <div className="field-container" style={{ width: "16%" }}>
                   <span className="field-name-input">DATE</span>
                   <div className="date-picker" style={{ bottom: "-11px" }}>
                     <DatePicker
@@ -696,7 +706,7 @@ const Dashboard = () => {
         </div>
       </div>
     </>
-  );
+    );
 };
 
-export default Dashboard;
+export default OperatorDashboard;

@@ -60,14 +60,14 @@
 
 .team1{
     display: flex;
-    margin: 6px 2px 5px 10px ;
+    margin: 17px 2px 18px 16px ;
     /* left: 1%; */
     width: auto;
     align-items: center;
     background-color: #00546C;
     border: 1px solid black;
     border-radius: 100px;
-    padding: 2px 2px 0px 0px;
+    padding: 4px 8px 0px 0px;
     
 }
 .NB-w{
@@ -92,13 +92,13 @@
 }
 .team2{
     display: flex;
-    margin: 6px 10px 5px 0px ;
+    margin: 17px 2px 18px 16px ;
     width: auto;
     align-items: center;
     background-color: #00546C;
     border: 1px solid black;
     border-radius: 100px;
-    padding: 2px 2px 0px 0px;
+    padding: 4px 8px 0px 0px;
 }
 .CH-w{
     /* border: 1px solid black; */

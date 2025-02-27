@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import { useNavigate } from "react-router-dom"; // Import the useNavigate hook
-import "../styles/OperatorLogin.css"; // Import the custom CSS file
-import axiosInstance from "../utils/axiosInstance";
+import "../../styles/operator/OperatorLogin.css"; // Import the custom CSS file
+import axiosInstance from "../../utils/axiosInstance";
 
 const OperatorLogin = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
@@ -33,6 +33,7 @@ const OperatorLogin = () => {
                 if (response.data) {
                     localStorage.setItem('token', response.data.token);
                     localStorage.setItem("device_id", response.data.device_id);
+                    localStorage.setItem("operator_id", response.data.operator_id);
                     console.log("Login successful, Device ID:", response.data.device_id);
                     setError(null);
                     alert('Login successful');

@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import axiosInstance from "../utils/axiosInstance";
 import "../styles/TicketForm.css";
 
 const TicketForm = ({ onSubmit , error,message}) => {
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const matchId = searchParams.get("matchId");
+
   const [formData, setFormData] = useState({
     priority: "",
     username: "",
@@ -10,7 +15,7 @@ const TicketForm = ({ onSubmit , error,message}) => {
     error_type: "",
     error_details: "",
     assigned_to: "",
-    match_id: "2",
+    match_id: matchId,
     user_id: "1",
     status: "Active",
     ticket_date: "",
@@ -51,7 +56,7 @@ const TicketForm = ({ onSubmit , error,message}) => {
         error_type: "",
         error_details: "",
         assigned_to: "",
-        match_id: "208",
+        match_id: matchId,
         user_id: "1",
         status: "Active",
         ticket_date: "",

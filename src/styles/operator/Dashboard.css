@@ -643,11 +643,11 @@ body {
   gap: 5px; /* Adjust spacing between image and text */
 }
 
-/* .team img {
+.team img {
   width: 40px;
   height: 40px;
   object-fit: contain;
-} */
+}
 
 .team p {
   font-size: 16px; /* Adjust as needed */

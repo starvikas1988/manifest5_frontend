@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { FaUsersCog, FaClipboardCheck } from "react-icons/fa";
-import dashboardIcon from "../images/dashboard.png";
+import dashboardIcon from "../../images/dashboard.png";
 
-import '../styles/Sidebar.css';
+import '../../styles/operator/Sidebar.css';
 
 const Sidebar = () => {
   const [isAdminOpen, setIsAdminOpen] = useState(false);
@@ -16,20 +16,20 @@ const Sidebar = () => {
     <div className="sidebar">
       <ul>
         <li onClick={() => setIsAdminOpen(!isAdminOpen)}>
-          <div style={{display:"flex"}}><i><img src='../images/shield_person.png'/></i>  Admin</div>
+          <div style={{display:"flex"}}><i><img src='../../images/shield_person.png'/></i>  Admin</div>
           <ul className={`submenu ${isAdminOpen ? 'open' : ''}`}>
             <li><Link to="/create-user">Create User</Link></li>
             <li><Link to="/manage-users">Manage User</Link></li>
           </ul>
         </li>
         <li>
-          <div style={{display:"flex"}}><img src="../images/dashboard_icon.png" style={{width:"21.98px", height:"25px"}} alt="Dashboard" className="" />
+          <div style={{display:"flex"}}><img src="../../images/dashboard_icon.png" style={{width:"21.98px", height:"25px"}} alt="Dashboard" className="" />
           <Link to="/dashboard">Dashboard</Link>
           </div>
         
         </li>
         <li onClick={() => setReportsOpen(!isReportsOpen)}>
-          <div style={{display:"flex"}}><i><img src='../images/lab_profile.png'/></i>  Reports (06)</div>
+          <div style={{display:"flex"}}><i><img src='../../images/lab_profile.png'/></i>  Reports (06)</div>
           <ul className={`submenu ${isReportsOpen ? 'open' : ''}`}>
             <li><Link to="/admin_reports_dashboard">Admin (06)</Link></li>
             <li><Link to="/">Operator (42)</Link></li>
@@ -39,7 +39,7 @@ const Sidebar = () => {
           </ul>
         </li>
         <li onClick={() => setCategoryOpen(!isCategoryOpen)}>
-          <div style={{display:"flex"}}><i><img src='../images/ODDS.png'/></i>  ODDS</div>
+          <div style={{display:"flex"}}><i><img src='../../images/ODDS.png'/></i>  ODDS</div>
           <ul className={`submenu ${isCategoryOpen ? 'open' : ''}`}>
             <li><Link to="/category_manage">Manage Category</Link></li>
             <li><Link to="/manage-market">Manage Market</Link></li>
@@ -47,14 +47,14 @@ const Sidebar = () => {
         </li>
 
         <li onClick={() => setReviewOpen(!isReviewOpen)}>
-          <div style={{display:"flex"}}><i><img src='../images/reviews.png'/></i>  Review</div>
+          <div style={{display:"flex"}}><i><img src='../../images/reviews.png'/></i>  Review</div>
           <ul className={`submenu ${isReviewOpen ? 'open' : ''}`}>
             <li><Link to="/">Manage Review</Link></li>
           </ul>
         </li>
 
         <li onClick={() => setCrmOpen(!isCrmOpen)}>
-          <div style={{display:"flex"}}><i><img src='../images/contact_support.png'/></i>CRM</div>
+          <div style={{display:"flex"}}><i><img src='../../images/contact_support.png'/></i>CRM</div>
           <ul className={`submenu ${isCrmOpen ? 'open' : ''}`}>
             <li><Link to="/crm">Manage CRM</Link></li>
           </ul>

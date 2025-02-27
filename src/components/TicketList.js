@@ -42,7 +42,8 @@ const TicketList = ({ tickets, onAction, onDelete ,onToggleStatus }) => {
                 <td className="action-icons">
                   <img src={viewIcon} alt="View" className="icon view" title="View" onClick={() => onAction("view", ticket)} />
                   <img src={editIcon} alt="Edit" className="icon edit" title="Edit" onClick={() => onAction("edit", ticket)} />
-                  <img src={deleteIcon} alt="Delete" className="icon delete"  title="Delete" onClick={() => onDelete(ticket.id)} />
+                  <span  className="icon view" onClick={() => onDelete(ticket.id)}>🗑️</span>
+                  {/* <img src={deleteIcon} alt="Delete" className="icon delete"  title="Delete" onClick={() => onDelete(ticket.id)} /> */}
                 </td>
               </tr>
             ))
