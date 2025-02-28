@@ -13,7 +13,7 @@ const Sidebar = () => {
   const [isCrmOpen,setCrmOpen] = useState(false);
 
   return (
-    <div className="sidebar">
+    <div className="sidebar-admin">
       <ul>
         <li onClick={() => setIsAdminOpen(!isAdminOpen)}>
           <div style={{display:"flex"}}><i><img src='../images/shield_person.png'/></i>  Admin</div>
@@ -49,7 +49,9 @@ const Sidebar = () => {
         <li onClick={() => setReviewOpen(!isReviewOpen)}>
           <div style={{display:"flex"}}><i><img src='../images/reviews.png'/></i>  Review</div>
           <ul className={`submenu ${isReviewOpen ? 'open' : ''}`}>
-            <li><Link to="/">Manage Review</Link></li>
+            <li><Link to="/review-dashboard">Manage Review</Link></li>
+            <li><Link to="/review-matchCard">Review Match Card</Link></li>
+            <li><Link to="/review-matchCardView">Review Match View</Link></li>
           </ul>
         </li>
 
@@ -60,7 +62,7 @@ const Sidebar = () => {
           </ul>
         </li>
        
-        <li>
+        {/* <li>
         <i><FaUsersCog size={18} /></i>
         <Link to="/assign_match">Assign Match</Link>
         </li>
@@ -68,7 +70,7 @@ const Sidebar = () => {
         <li>
         <i><FaUsersCog size={18} /></i>
         <Link to="/manage-ticket">Tickets</Link>
-        </li>
+        </li> */}
       
       </ul>
     </div>

@@ -49,6 +49,7 @@ const OperatorDashboard = () => {
   const [showPending, setShowPending] = useState(false);
 
   const [matchOperatorMap, setMatchOperatorMap] = useState({});
+  const userName = localStorage.getItem("user_name");
 
   const options = [
     "T20",
@@ -124,29 +125,20 @@ const OperatorDashboard = () => {
       console.error("Operator ID not found");
       return;
     }
-
+   
     try {
+      
       const response = await axiosInstance.get(`/assignments/${operator_id}`, {
         method: "GET",
         headers: {
-          "Content-Type": "application/json",
            Authorization: `Bearer ${authToken}` ,
         },
       });
   
-      // Check if response is OK (status 200-299)
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-  
-      // Ensure response is JSON
-      const contentType = response.headers.get("content-type");
-      if (!contentType || !contentType.includes("application/json")) {
-        throw new Error("Received non-JSON response from the server.");
-      }
-  
-      const data = await response.json(); // Convert response to JSON
-      //console.log("Fetched Assigned Operator Matches:", data);
+     
+      console.log(response);
+      const data = response.data; // Convert response to JSON
+      console.log("Fetched Assigned Operator Matches vikas:", data);
       if (!Array.isArray(data)) {
         throw new Error("Expected an array but got a different type.");
       }
@@ -167,6 +159,7 @@ const OperatorDashboard = () => {
       return null; // Return null or an empty array to handle errors gracefully
     }
   };
+ 
   
   const fetchCompetitions = async () => {
     try {
@@ -210,7 +203,7 @@ const OperatorDashboard = () => {
       const response = await axiosInstance.get(`/getAssignmentsCount/${operator_id}`, {
         headers: { Authorization: `Bearer ${authToken}` },
       });
-      console.log("Assignments API Response:", response.data); // Debugging
+     // console.log("Assignments API Response:", response.data); // Debugging
       setAssignmentCount(response.data);
     } catch (error) {
       console.error("Error fetching assignments:", error);
@@ -259,11 +252,11 @@ const OperatorDashboard = () => {
       );
       setSelectedStartDate(localDate);
 
-      console.log("Raw Selected Date:", date);
-      console.log(
-        "Corrected Local Date:",
-        localDate.toISOString().split("T")[0]
-      );
+      //console.log("Raw Selected Date:", date);
+      // console.log(
+      //   "Corrected Local Date:",
+      //   localDate.toISOString().split("T")[0]
+      // );
     }
   };
 

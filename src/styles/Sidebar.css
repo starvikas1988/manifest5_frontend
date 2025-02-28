@@ -1,19 +1,20 @@
-.sidebar {
+.sidebar-admin {
   width: 220px;
   background-color: #00474d;
-  /* Sidebar Background */
+  /* sidebar-admin Background */
   color: white;
   padding: 15px;
+  height: 228%;
 }
 
-/* Sidebar menu styles */
-.sidebar ul {
+/* sidebar-admin menu styles */
+.sidebar-admin ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.sidebar ul li {
+.sidebar-admin ul li {
   position: relative;
   /* Needed for submenu positioning */
   padding: 10px;
@@ -27,13 +28,13 @@
   flex-direction: column;
 }
 
-/* Sidebar menu item hover effect */
-.sidebar ul li:hover {
+/* sidebar-admin menu item hover effect */
+.sidebar-admin ul li:hover {
   background-color: #006d75;
 }
 
 /* Remove default link styles */
-.sidebar ul li a {
+.sidebar-admin ul li a {
   color: white;
   /* White text color */
   text-decoration: none;
@@ -45,7 +46,7 @@
 }
 
 /* Add hover effect */
-.sidebar ul li a:hover {
+.sidebar-admin ul li a:hover {
   background-color: #006d75;
   border-radius: 5px;
 }
@@ -106,6 +107,6 @@
 }
 
 /* Proper spacing for icons */
-.sidebar ul li i {
+.sidebar-admin ul li i {
   font-size: 18px;
 }

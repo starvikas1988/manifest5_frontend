@@ -20,6 +20,9 @@ import OperatorDashboard from './components/operator/OperatorDashboard';
 import OperatorProtectedRoute from './components/OperatorProtectedRoute';
 import MarketManage from './components/MarketManage';
 import AdminReportsDashboard from './components/AdminReportsDashboard';
+import ReviewDashboard from './components/ReviewDashboard';
+import ReviewMatchCard from './components/ReviewMatchCard';
+import ReviewMatchCardView from './components/ReviewMatchCardView';
 import Crm from './components/Crm';
 function App() {
   return (
@@ -63,6 +66,30 @@ function App() {
           element={
             <ProtectedRoute>
               <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/review-dashboard"
+          element={
+            <ProtectedRoute>
+              <ReviewDashboard />
+            </ProtectedRoute>
+          }
+        /> 
+         <Route
+          path="/review-matchCard"
+          element={
+            <ProtectedRoute>
+              <ReviewMatchCard />
+            </ProtectedRoute>
+          }
+        />
+         <Route
+          path="/review-matchCardView"
+          element={
+            <ProtectedRoute>
+              <ReviewMatchCardView />
             </ProtectedRoute>
           }
         />

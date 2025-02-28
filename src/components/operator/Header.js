@@ -13,7 +13,7 @@ const Header = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user_name');
     localStorage.removeItem('operator_id');
-    window.location.href = '/login';
+    window.location.href = '/login/operator';
   };
 
   const toggleDropdown = () => {
@@ -24,7 +24,7 @@ const Header = () => {
   return (
     <div className="header">
       <div className="logo">
-        <img src="images/manifest.png" alt="Logo" />
+        <img src="images/logo2.png" alt="Logo" />
       </div>
       {/* <button onClick={handleLogout} className="logout-button">
         Logout

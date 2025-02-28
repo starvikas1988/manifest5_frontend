@@ -42,47 +42,6 @@
     background-color: #b02a37;
   }
   
-  /* Sidebar Styles */
-  .sidebar {
-    width: 220px;
-    background-color: #00474d;
-    color: white;
-    padding: 15px;
-  }
-  
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .sidebar ul li {
-    padding: 10px;
-    cursor: pointer;
-    display: flex;
-  }
-  
-  .sidebar ul li:hover {
-    background-color: #006d75;
-  }
-  
-  .sidebar ul li i {
-    margin-right: 10px;
-  }
-  
-  .sidebar .submenu {
-    margin-left: 20px;
-    display: none;
-  }
-  
-  .sidebar .submenu.open {
-    display: block;
-  }
-  
-  .sidebar .submenu li {
-    padding: 5px 0;
-    font-size: 14px;
-  }
   
   /* Main Content Styles */
   .main-content {

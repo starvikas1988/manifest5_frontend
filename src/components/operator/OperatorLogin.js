@@ -34,6 +34,7 @@ const OperatorLogin = () => {
                     localStorage.setItem('token', response.data.token);
                     localStorage.setItem("device_id", response.data.device_id);
                     localStorage.setItem("operator_id", response.data.operator_id);
+                    localStorage.setItem('user_name', response.data.user_name);
                     console.log("Login successful, Device ID:", response.data.device_id);
                     setError(null);
                     alert('Login successful');

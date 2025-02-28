@@ -51,12 +51,6 @@ body {
 }
 
 /* Sidebar Styles */
-.sidebar {
-  width: 20%;
-  height: 1210px;
-  background-color: #043e54;
-  padding: 30px;
-}
 
 .menu-item {
   width: 210px;
