@@ -93,7 +93,7 @@ const OperatorDashboard = () => {
       return { backgroundColor: "#FCA502" }; // Orange
     }
     if (statusFilter === "total_match_card") {
-      return { backgroundColor: "#00546C" }; // Orange
+      return { backgroundColor: "#9F41A4" }; // Orange
     }
     return {}; // No inline style (default)
   };
@@ -355,14 +355,14 @@ const OperatorDashboard = () => {
                       className="section-number"
                       style={{ color: "#9F41A4", fontSize: "24px" ,top: "31px"}}
                     >
-                      {totalItems}
+                      {assignmentCount}
                     </span>
                   </div>
 
                   <div className="separator"></div>
 
                   <div className="section">
-                    <span className="section-title">ASSIGNED</span>
+                    <span className="section-title">ODDS ENTRY</span>
                     <img
                       src="../images/dashboard_main/Group 1527.png"
                       alt="Operator Icon"
@@ -386,14 +386,15 @@ const OperatorDashboard = () => {
                       src="../images/dashboard_main/Group 1536.png"
                       alt="Pending Icon"
                       className="section-icon"
-                      onClick={handleFetchPendingMatches}
+                      // onClick={handleFetchPendingMatches}
                       style={{ cursor: "pointer" }}
                     />
                     <span
                       className="section-number"
                       style={{ color: "#FCA502", fontSize: "24px" ,top: "31px" }}
                     >
-                      {totalItems - assignmentCount}
+                      0
+                      {/* {totalItems - assignmentCount} */}
                     </span>
                   </div>
 
@@ -574,7 +575,8 @@ const OperatorDashboard = () => {
 
             <div className="list-view-section">
               <span className="list-view-textD">
-                CARD VIEW ({filteredMatches.length})
+                {/* CARD VIEW ({filteredMatches.length}) */}
+                CARD VIEW ({assignmentCount})
               </span>
             </div>
 
@@ -582,7 +584,7 @@ const OperatorDashboard = () => {
               {filteredMatches.map((match, index) => (
                 <div className="card-container" key={index}>
                   <div className="match-number-div">
-                    <div className="match-number">
+                    <div className="match-number" style={getBackgroundColorStyle()}>
                       {" "}
                       MATCH {match.m5MatchNo},{" "}
                       {match.m5GenderName?.toUpperCase()},{" "}
@@ -593,7 +595,7 @@ const OperatorDashboard = () => {
                   </div>
 
                   <div className="match-name">
-                    <div className="bpl-className" style={getBackgroundColorStyle()}>
+                    <div className="bpl-className">
                       <div className="bpl-name-time">
                         <div className="bpl-name">{match.m5SeriesName}</div>
                         <div className="date-time">
@@ -602,7 +604,7 @@ const OperatorDashboard = () => {
                         </div>
                         <div className="stadium-name">{match.m5GroundName}</div>
                       </div>
-                      <div className="firstClass">
+                      <div className="firstClass" style={getBackgroundColorStyle()}>
                         <div className="firstclass-name">
                           {match.m5MatchFormat}
                         </div>
@@ -656,7 +658,7 @@ const OperatorDashboard = () => {
                           />
                         </div>
                       </div>
-                      <div className="menubar">
+                      <div className="menubar" style={getBackgroundColorStyle()}>
                         <div className="menubar-img">
                           <img
                             src={img3}

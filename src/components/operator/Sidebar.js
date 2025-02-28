@@ -15,13 +15,13 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <ul>
-        <li onClick={() => setIsAdminOpen(!isAdminOpen)}>
+        {/* <li onClick={() => setIsAdminOpen(!isAdminOpen)}>
           <div style={{display:"flex"}}><i><img src='../../images/shield_person.png'/></i>  Admin</div>
           <ul className={`submenu ${isAdminOpen ? 'open' : ''}`}>
             <li><Link to="/create-user">Create User</Link></li>
             <li><Link to="/manage-users">Manage User</Link></li>
           </ul>
-        </li>
+        </li> */}
         <li>
           <div style={{display:"flex"}}><img src="../../images/dashboard_icon.png" style={{width:"21.98px", height:"25px"}} alt="Dashboard" className="" />
           <Link to="/dashboard">Dashboard</Link>
@@ -59,7 +59,7 @@ const Sidebar = () => {
             <li><Link to="/crm">Manage CRM</Link></li>
           </ul>
         </li>
-       
+{/*        
         <li>
         <i><FaUsersCog size={18} /></i>
         <Link to="/assign_match">Assign Match</Link>
@@ -68,7 +68,7 @@ const Sidebar = () => {
         <li>
         <i><FaUsersCog size={18} /></i>
         <Link to="/manage-ticket">Tickets</Link>
-        </li>
+        </li> */}
       
       </ul>
     </div>

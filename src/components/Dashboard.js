@@ -89,7 +89,7 @@ const Dashboard = () => {
       return { backgroundColor: "#FCA502" }; // Orange
     }
     if (statusFilter === "total_match_card") {
-      return { backgroundColor: "#00546C" }; // Orange
+      return { backgroundColor: "#9F41A4" }; // Orange
     }
     return {}; // No inline style (default)
   };
@@ -578,7 +578,7 @@ const Dashboard = () => {
               {filteredMatches.map((match, index) => (
                 <div className="card-container" key={index}>
                   <div className="match-number-div">
-                    <div className="match-number">
+                    <div className="match-number" style={getBackgroundColorStyle()}>
                       {" "}
                       MATCH {match.m5MatchNo},{" "}
                       {match.m5GenderName?.toUpperCase()},{" "}
@@ -589,7 +589,7 @@ const Dashboard = () => {
                   </div>
 
                   <div className="match-name">
-                    <div className="bpl-className" style={getBackgroundColorStyle()}>
+                    <div className="bpl-className">
                       <div className="bpl-name-time">
                         <div className="bpl-name">{match.m5SeriesName}</div>
                         <div className="date-time">
@@ -598,7 +598,7 @@ const Dashboard = () => {
                         </div>
                         <div className="stadium-name">{match.m5GroundName}</div>
                       </div>
-                      <div className="firstClass">
+                      <div className="firstClass" style={getBackgroundColorStyle()}>
                         <div className="firstclass-name">
                           {match.m5MatchFormat}
                         </div>
@@ -652,7 +652,7 @@ const Dashboard = () => {
                           />
                         </div>
                       </div>
-                      <div className="menubar">
+                      <div className="menubar" style={getBackgroundColorStyle()}>
                         <div className="menubar-img">
                           <img
                             src={img3}
