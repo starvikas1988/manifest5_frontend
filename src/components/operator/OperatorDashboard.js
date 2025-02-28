@@ -78,6 +78,7 @@ const OperatorDashboard = () => {
     fetchCompetitions();
     fetchAssignmentsCount();
     fetchAssignedOperatorMatchIds();
+    fetchAssignedMatchIds();
     fetchMatches(currentPage);
   }, [
     authToken,
@@ -348,7 +349,7 @@ const OperatorDashboard = () => {
                       src="../images/dashboard_main/Group 1526.png"
                       alt="Admin Icon"
                       className="section-icon"
-                      onClick={handleFetchMatches}
+                      onClick={fetchAssignedMatchIds}
                       style={{ cursor: "pointer" }}
                     />
                     <span
