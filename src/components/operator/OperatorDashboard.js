@@ -139,7 +139,7 @@ const OperatorDashboard = () => {
      
       console.log(response);
       const data = response.data; // Convert response to JSON
-      console.log("Fetched Assigned Operator Matches vikas:", data);
+     // console.log("Fetched Assigned Operator Matches vikas:", data);
       if (!Array.isArray(data)) {
         throw new Error("Expected an array but got a different type.");
       }
@@ -213,37 +213,29 @@ const OperatorDashboard = () => {
 
   const fetchMatches = async (page) => {
     try {
-      const queryParams = new URLSearchParams({
-        SeriesId: 0,
-        StartDate: null,
-        SeriesName: null,
-        Tab: "Live",
-        Page: page,
-        PerPage: perPage,
-      }).toString();
-
-      const response = await fetch(
-        `https://api.maniifest5.com/api/Dashboard?${queryParams}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${authApiToken}`,
-          },
-        }
-      );
-
-      if (!response.ok) throw new Error("Failed to fetch dashboard data");
-
-      const data = await response.json();
-      // console.log(data);
-      setMatches(data.response.items);
-      setTotalPages(data.response.totalPages); // Adjust this based on API response
-      setTotalItems(data.response.totalItems);
+      const response = await axiosInstance.get(`/getMatches`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${authToken}`,
+        },
+      });
+  
+      // Axios stores the data in response.data
+      const data = response.data; 
+      console.log("vikas", data);
+  
+      if (data.status === "ok" && data.isSuccess) {
+        setMatches(data.response.items);
+        setTotalPages(data.response.totalPages);
+        setTotalItems(data.response.totalItems);
+      } else {
+        console.error("API response is not successful:", data);
+      }
     } catch (error) {
       console.error("Error fetching matches:", error);
     }
   };
+  
 
   const handleDateChange = (date) => {
     if (date) {
@@ -321,6 +313,8 @@ const OperatorDashboard = () => {
         match.m5CompetitionId?.toString() === selectedCompetition.toString()) &&
       (!match.selectedDate || match.matchDate === match.selectedDate) // Use match.selectedDate for comparison
   );
+
+  console.log(filteredMatches);
     return (
       <>
       <ApiAuthProvider />

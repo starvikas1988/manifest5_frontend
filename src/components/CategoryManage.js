@@ -14,8 +14,25 @@ const CategoryManage = () => {
   const [message, setMessage] = useState("");
   const [messageType, setMessageType] = useState("");
 
+  const [matchById, setMatchById] = useState(null);
+  const [totalMarkets, setTotalMarkets] = useState(0); // Total market count
+    const [selectedMarketsTotal, setSelectedMarketsTotal] = useState(0);
+    const matchId = 208;
+
   const navigate = useNavigate();
   const authToken = localStorage.getItem("token");
+
+  const fetchMatchById = async () => {
+    try {
+      const response = await axiosInstance.get(`/fetchMatchesById/${matchId}`, {
+        headers: { Authorization: `Bearer ${authToken}` },
+      });
+     // console.log("Match by ID API Response:", response.data);
+      setMatchById(response.data.data); // Fix: response.data.data contains the actual match info
+    } catch (error) {
+      console.error("Error fetching match by ID:", error);
+    }
+  };
 
   // Fetch categories from API
   const fetchCategories = async () => {
@@ -34,7 +51,8 @@ const CategoryManage = () => {
       navigate("/login");
     }
     fetchCategories();
-  }, [authToken]);
+    fetchMatchById();
+  }, [authToken,matchById]);
 
   // Show message with auto-hide after 5 seconds
   const showMessage = (text, type) => {
@@ -127,7 +145,10 @@ const CategoryManage = () => {
         <div className="category-management-container">
           <Sidebar />
           <div className="main-content">
-             <NamingHeader />
+          {/* <NamingHeader matchById={matchById} 
+             totalMarkets={totalMarkets}
+             selectedMarkets={selectedMarketsTotal}
+             /> */}
             <div className="category-container">
               <h3 className="category-name">
                 Existing Categories ({categories.length})

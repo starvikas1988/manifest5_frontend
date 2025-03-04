@@ -41,6 +41,7 @@ const Sidebar = () => {
         <li onClick={() => setCategoryOpen(!isCategoryOpen)}>
           <div style={{display:"flex"}}><i><img src='../images/ODDS.png'/></i>  ODDS</div>
           <ul className={`submenu ${isCategoryOpen ? 'open' : ''}`}>
+            <li><Link to="/odds-dashboard">Assign Market</Link></li>
             <li><Link to="/category_manage">Manage Category</Link></li>
             <li><Link to="/manage-market">Manage Market</Link></li>
           </ul>

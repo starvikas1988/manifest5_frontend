@@ -1,0 +1,182 @@
+.matchtable{
+    margin-left: 30%;
+    width: 278px;
+    height: 425px;
+    display: flex;
+   background-color: white;
+   flex-direction: column;
+   margin: 20px 0px 0px 20px;
+   border-radius: 5px;
+}
+.matchtable__header{
+    width: 96%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #ADCAB3;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.input_div{
+width: 45%;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #ADCAB3;
+border-radius: 5px;
+}
+.input_div input{
+width: 100%;
+height: 50%;
+
+
+}
+.input_div input[type="checkbox"]{
+    background-color: #ADCAB3;
+}
+input[type="checkbox"] {
+    /* appearance: none; */
+    background-color: #FFFFFF;
+    color: #0C7C73;
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid #0C7C73;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.img_batsman{
+    display: flex;
+    width: 100%;
+    /* /border: 1px solid black;/ */
+    gap: 7%;
+    justify-content: center;
+    align-items: center;
+}
+.img_batsman img{
+    width: 25px;
+    height: 27px;
+}
+.batsman_profile_menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+    /* /border: 1px solid black;/ */
+    gap: 10%;
+   
+}
+.batsman_profile_div img{
+    width: 18px;
+    height: 22px;
+}
+.batsman_manu_div img{
+    width: 20px;
+    height: 19px;
+}
+/* header part css end here */
+
+/* body part css start here */
+.matchtable_body{
+    border: 1px solid #00546C;
+    margin: 5px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    border-radius: 5px;
+}
+
+.first_column_contain{
+    color: #FFFFFF;
+    background-color: #00546C;
+    border-radius: 10px;
+    padding: 20% 0% 20% 0%;
+    font-size: 10px;
+    margin: top;
+    display: flex;
+    flex-direction: column;
+    
+  }
+  
+  .first_column{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-content: space-between;
+    padding: 2%;
+    gap: 20px;
+    border: 1px solid #00546C;
+    border-radius: 5px 0px 0px 5px;
+
+  }
+ .checkboxdiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+ }
+
+  .second_column_contain{
+    color: #FFFFFF;
+    background-color: #00546C;
+    border-radius: 10px;
+    padding: 15% 0% 15% 0%;
+    font-size: 10px;
+    margin: top;
+  }
+  
+  
+  .second_column{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    padding: 2%;
+    border: 1px solid #00546C;
+  }
+  
+  .btn {
+    background-color: #a9c5a0;
+    color: #0f2c2c;
+    border: none;
+    padding: 5px;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    padding-top: 7px;
+  }
+
+
+
+.third_column_contain {
+    color: #FFFFFF;
+    background-color: #00546C;
+    border-radius: 10px;
+    padding: 30% 0% 30% 0%;
+    font-size: 10px;
+    margin: top;
+  }
+  
+  
+  .third_column{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-content: space-between;
+    padding:2%;
+    border: 1px solid #00546C;
+    border-radius: 0px 5px 5px 0px;
+  }
+  
+  .align-contain{
+    margin: auto;
+  }

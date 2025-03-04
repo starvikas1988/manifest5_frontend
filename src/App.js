@@ -24,6 +24,7 @@ import ReviewDashboard from './components/ReviewDashboard';
 import ReviewMatchCard from './components/ReviewMatchCard';
 import ReviewMatchCardView from './components/ReviewMatchCardView';
 import Crm from './components/Crm';
+import OddsDashboard from './components/OddsDashboard';
 function App() {
   return (
     <Router>
@@ -93,6 +94,15 @@ function App() {
             </ProtectedRoute>
           }
         />
+       <Route
+          path="/odds-dashboard/:matchId"
+          element={
+            <ProtectedRoute>
+              <OddsDashboard />
+            </ProtectedRoute>
+          }
+        />
+
         <Route
           path="/crm"
           element={

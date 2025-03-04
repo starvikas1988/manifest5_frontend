@@ -1,0 +1,132 @@
+
+
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* Action Buttons (Right Side) */
+.action-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+/* Button Styles */
+.action-button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    transition: background 0.3s, transform 0.2s;
+}
+
+/* Button Colors */
+.submit-btn {
+    background-color: #308A00;
+}
+
+.refresh-btn {
+    background-color: #00546C;
+}
+
+.cancel-btn {
+    background-color: #DF2330;
+}
+
+/* Button Hover Effect */
+.action-button:hover {
+    transform: scale(1.05);
+}
+
+/* Icons */
+.action-button i {
+    font-size: 16px;
+}
+
+.save-btn {
+    background-color: #308A00;
+}
+
+.refresh-btn {
+    background-color: #00546C;
+}
+
+.cancel-btn {
+    background-color: #DF2330;
+}
+
+.save-btn:hover,
+.refresh-btn:hover,
+.cancel-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Message Styles */
+.message {
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.message.success {
+    background-color: #28a745;
+    color: white;
+}
+
+.message.error {
+    background-color: #dc3545;
+    color: white;
+}
+
+
+/* Responsive */
+@media (max-width: 900px) {
+    .match-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .category-container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .add-category {
+        flex-direction: column;
+    }
+
+    .add-category input {
+        width: 100%;
+    }
+
+    .save-btn {
+        width: 100%;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+}

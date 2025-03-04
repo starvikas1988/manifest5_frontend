@@ -70,7 +70,7 @@ const Dashboard = () => {
     if (!authToken) {
       navigate("/login"); // Redirect if not logged in
     }
-
+    postVendorAssignedMatch();
     fetchCompetitions();
     fetchAssignmentsCount();
     fetchAssignedOperatorMatchIds();
@@ -108,6 +108,17 @@ const Dashboard = () => {
       setShowPending(false);
     } catch (error) {
       console.error("Error fetching assigned matches:", error);
+    }
+  };
+
+  const postVendorAssignedMatch = async () => {
+    try {
+      const response = await axiosInstance.get("/matches/fetch", {
+        headers: { Authorization: `Bearer ${authToken}` },
+      });
+     // console.log("Assigned Match API Response vikas vendor:", response.data); // Debugging
+    } catch (error) {
+      console.error("Error assigning match:", error);
     }
   };
 
@@ -264,9 +275,10 @@ const Dashboard = () => {
     navigate("/manage-ticket");
   };
 
-  const handleODDSClick = () => {
-    navigate("/category_manage");
+  const handleODDSClick = (matchId) => {
+    navigate(`/odds-dashboard/${matchId}`);
   };
+  
 
   const handleAssignClick = (matchId) => {
     navigate(`/assign_match?matchId=${matchId}`);
@@ -636,7 +648,7 @@ const Dashboard = () => {
                           <div
                             className="odds"
                             style={{ cursor: "pointer" }}
-                            onClick={handleODDSClick}
+                            onClick={() => handleODDSClick(match.m5MatchId)}
                           >
                             ODDS
                           </div>
